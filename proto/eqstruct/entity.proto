@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message ManaUpdate {
+    uint32 spawn_id = 1;
+    uint32 mana_curr = 2;
+}

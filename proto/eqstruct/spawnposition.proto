@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message SpawnPosition {
+    uint32 spawn_id = 1;
+    int32 anim_type = 2;
+    uint32 heading = 3;
+    int32 heading_delta = 4;
+    int32 x = 5;
+    int32 y = 6;
+    int32 z = 7;
+    uint32 delta = 8;
+}
+
+message SpawnPositions {
+    repeated SpawnPosition positions = 1;
+}

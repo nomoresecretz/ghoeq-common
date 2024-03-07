@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message Spawn {
+    uint32 spawn_id = 1;
+    int32 acceleration = 2;
+    uint32 heading = 3;
+    int32 heading_delta = 4;
+    int32 y = 5;
+    int32 x = 6;
+    int32 z = 7;
+    uint32 y_delta = 8;
+    uint32 x_delta = 9;
+    uint32 z_delta = 10;
+    uint32 pet_owner = 11;
+    uint32 animation = 12;
+    uint32 hair_color = 13;
+    uint32 beard_color = 14;
+    uint32 eye_color_1 = 15;
+    uint32 eye_color_2 = 16;
+    uint32 hair_style = 17;
+    uint32 beard = 18;
+    uint32 title = 19;
+    float size = 20;
+    float walk_speed = 21;
+    float run_speed = 22;
+    int32 body_type = 23;
+    int32 hp_curr = 24;
+    int32 guild_id = 25;
+    int32 race = 26;
+    uint32 npc = 27;
+    uint32 class_b = 28;
+    uint32 gender = 29;
+    uint32 level = 30;
+    uint32 invis = 31;
+    uint32 sneaking = 32;
+    uint32 pvp = 33;
+    uint32 anim_type = 34;
+    uint32 light = 35;
+    int32 anon = 36;
+    int32 afk = 37;
+    int32 summoned_pc = 38;
+    int32 ld = 39;
+    int32 gm = 40;
+    int32 fly_mode = 41;
+    int32 body_texture = 42;
+    int32 helm = 43;
+    uint32 face = 44;
+    int32 guild_rank = 45;
+    int32 diety = 46;
+    int32 temp_pet = 47;
+    string name = 48;
+    string surname = 49;
+}
+
+message Spawns {
+    repeated Spawn spawns = 1;
+}

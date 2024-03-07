@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+import "proto/any/any.proto";
+
+package eqstruct;
+
+enum StructType {
+    ST_UNKOWN = 0;
+    ST_PlayerProfile = 1;
+    ST_SpawnPosition = 2;
+    ST_SpawnPositions = 3;
+}
+
+message DataStruct {
+    StructType type = 1;
+    google.protobuf.Any msg = 2;
+}

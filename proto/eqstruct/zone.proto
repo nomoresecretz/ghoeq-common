@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message ZoneServerInfo {
+    string ip = 1;
+    uint32 port = 2;
+}
+
+message NewZone {
+    string name = 1;
+    string name_short = 2;
+    string name_long = 3;
+    uint32 type = 4;
+    uint32 fog_red = 5;
+    uint32 fog_green = 6;
+    uint32 fog_blue = 7;
+    float fog_min_clip = 8;
+    float fog_max_clip = 9;
+    float gravity = 10;
+    uint32 time_type = 11;
+    uint32 rain_chance = 12;
+    uint32 rain_duration = 13;
+    uint32 snow_chance = 14;
+    uint32 snow_duration = 15;
+    bytes special_dates = 16;
+    bytes special_codes = 17;
+    uint32 time_zone = 18;
+    uint32 sky = 19;
+    int32 water_music = 20;
+    int32 music_normal_day = 21;
+    int32 music_normal_night = 22;
+    float zone_exp_multiplier = 23;
+    float safe_x = 24;
+    float safe_y = 25;
+    float safe_z = 26;
+    float max_z = 27;
+    float underworld = 28;
+    float clip_min = 29;
+    float clip_max = 30;
+    uint32 forage_novice = 31;
+    uint32 forage_medium = 32;
+    uint32 forage_advance = 33;
+    uint32 fishing_novice = 34;
+    uint32 fishing_medium = 35;
+    uint32 fishing_advance = 36;
+    uint32 sky_lock = 37;
+    uint32 graveyard_time = 38;
+    uint32 script_periodic_hour = 39;
+    uint32 script_periodic_min = 40;
+    uint32 script_periodic_fast = 41;
+    uint32 script_player_dead = 42;
+    uint32 script_npc_dead = 43;
+    uint32 script_player_entering = 44;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message EnterWorld {
+    string Name = 1;
+}

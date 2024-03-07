@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message PlayerProfile {
+    uint32 checksum = 1;
+    uint32 unique_guild_id = 2;
+    uint32 gender = 3;
+    uint32 race = 4;
+    uint32 class = 5;
+    uint32 body_type = 6;
+    uint32 level = 7;
+    uint32 exp = 8;
+    int32 points = 9;
+    int32 mana = 10;
+    int32 curr_hp = 11;
+    uint32 status = 12;
+    uint32 str = 13;
+    uint32 sta = 14;
+    uint32 cha = 15;
+    uint32 dex = 16;
+    uint32 int = 17;
+    uint32 agi = 18;
+    uint32 wis = 19;
+    uint32 face = 20;
+    uint32 position = 21;
+    uint32 zone_id = 22;
+    int32 hunger = 23;
+    int32 thirst = 24;
+
+    float x = 50;
+    float y = 51;
+    float z = 52;
+    float heading = 53;
+
+    string name = 91;
+    string last_name = 92;
+    string level_char = 93;
+    string gender_char = 94;
+
+}
