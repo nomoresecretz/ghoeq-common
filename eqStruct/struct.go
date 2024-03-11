@@ -30,6 +30,16 @@ const (
 	EQT_ClientUpdate
 	EQT_ManaUpdate
 	EQT_NewZone
+	EQT_StaminaUpdate
+	EQT_MoveDoor
+	EQT_SpawnAppearance
+	EQT_Action
+	EQT_BeginCast
+	EQT_Damage
+	EQT_ExpUpdate
+	EQT_Consider
+	EQT_Target
+	EQT_HPUpdate
 )
 
 type EQStruct interface {
@@ -165,7 +175,7 @@ func EQReadFloat32(b []byte, s EQStruct, field *float32) error {
 func EQReadBytes(b []byte, s EQStruct, field *[]byte, maxLength int) error {
 	p := s.bp()
 	bh := make([]byte, maxLength)
-	stop := min(((len(b)-*p)-maxLength) + *p, *p+maxLength+1)
+	stop := min(((len(b)-*p)-maxLength)+*p, *p+maxLength+1)
 	copy(bh, b[*p:stop])
 	*field = bh
 	*p += maxLength

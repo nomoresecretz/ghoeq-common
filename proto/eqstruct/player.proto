@@ -41,3 +41,33 @@ message PlayerProfile {
     string gender_char = 94;
 
 }
+
+message ExpUpdate {
+    uint32 exp = 1;
+}
+
+
+message ManaUpdate {
+    uint32 spawn_id = 1;
+    uint32 mana_curr = 2;
+}
+
+message StaminaUpdate {
+    int32 food = 1;
+    int32 water = 2;
+    int32 fatigue = 3;
+}
+
+message Consider {
+    uint32 player_id = 1;
+    uint32 target_id = 2;
+    uint32 faction = 3;
+    uint32 level = 4;
+    int32 curr_hp = 5;
+    int32 max_hp = 6;
+    uint32 pvpcon = 7;
+}
+
+message Target {
+    uint32 target_id = 1;
+}

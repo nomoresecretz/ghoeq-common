@@ -4,7 +4,44 @@ option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
 
 package eqstruct;
 
-message ManaUpdate {
+message MoveDoor {
+    int32 door_id = 1;
+    int32 action = 2;
+}
+
+message Action {
+    uint32 target = 1;
+    uint32 source = 2;
+    uint32 level = 3;
+    int32 instrument_mod = 4;
+    float force = 5;
+    float sequence = 6;
+    float pushup_angle = 7;
+    uint32 type = 8;
+    int32 tap_amount = 9;
+    uint32 spell = 10;
+    uint32 buff_unknown = 11;
+}
+
+message BeginCast {
+    uint32 caster_id = 1;
+    uint32 spell_id = 2;
+    uint32 cast_time = 3;
+}
+
+message Damage {
+    uint32 target = 1;
+    uint32 source = 2;
+    uint32 type = 3;
+    uint32 spell_id = 4;
+    int32 damage = 5;
+    float force = 6;
+    float sequence = 7;
+    float pushup_angle = 8;
+}
+
+message HPUpdate {
     uint32 spawn_id = 1;
-    uint32 mana_curr = 2;
+    int32 hp_cur = 2;
+    int32 hp_max = 3;
 }

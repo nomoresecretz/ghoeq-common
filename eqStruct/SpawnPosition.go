@@ -23,35 +23,35 @@ func (p *SpawnPositionUpdate) bp() *int       { return &p.bPointer }
 
 func (p *SpawnPositionUpdate) Unmarshal(b []byte) error {
 	p.bPointer = 0
-	if err := EQRead(b, p, &p.SpawnID, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.AnimType, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.AnimType, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.Heading, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.Heading, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.HeadingDelta, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.HeadingDelta, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.Y, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.Y, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.X, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.X, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.Z, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.Z, 0); err != nil {
 		return err
 	}
 
-	if err := EQRead(b, p, &p.XYZDelta, 0); err != nil {
+	if err := EQReadLittleEndian(b, p, &p.XYZDelta, 0); err != nil {
 		return err
 	}
 
@@ -82,7 +82,7 @@ func (p *SpawnPositionUpdates) Unmarshal(b []byte) error {
 		if err != nil {
 			return err
 		}
-		p.bPointer += upd.bPointer - 1
+		p.bPointer += upd.bPointer
 		p.Updates[i] = upd
 	}
 
