@@ -33,6 +33,8 @@ jobs:
             run: env && go env && pwd
           - name: Protogen
             run: protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative $(find . -type f -name '*.proto')
+          - name: Generate
+            run: go generate -v ./...
           - name: Build
             run: go build -v ./...
           - name: Test

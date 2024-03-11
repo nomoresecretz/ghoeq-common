@@ -5,11 +5,13 @@ import (
 	"cmp"
 	"encoding/binary"
 	"fmt"
+	"reflect"
 	"strings"
 
 	"golang.org/x/exp/constraints"
 )
 
+//go:generate enumer -type=EQType
 type EQType uint32
 
 const (
@@ -41,6 +43,44 @@ const (
 	EQT_Target
 	EQT_HPUpdate
 )
+
+var typeRegistry = map[EQType]any{
+	EQT_PlayerProfile:         (*PlayerProfile)(nil),
+	EQT_PlayEverquestResponse: (*PlayRequest)(nil), // TODO: verify
+	EQT_ZoneServerInfo:        (*ZoneServerInfo)(nil),
+	EQT_PlayRequest:           (*PlayRequest)(nil),
+	EQT_ServerZoneEntry:       (*ServerZoneEntry)(nil),
+	EQT_LogServer:             (*LogServer)(nil),
+	EQT_EnterWorld:            (*EnterWorld)(nil),
+	EQT_LoginInfo:             (*LoginInfo)(nil),
+	EQT_LoginAccepted:         (*LoginAccepted)(nil),
+	EQT_SpawnPositionUpdate:   (*SpawnPositionUpdate)(nil),
+	EQT_SpawnPositionUpdates:  (*SpawnPositionUpdates)(nil),
+	EQT_ZoneSpawns:            (*ZoneSpawns)(nil),
+	EQT_ZoneSpawn:             (*ZoneSpawn)(nil),
+	EQT_ClientUpdate:          (*SpawnPositionUpdate)(nil), // TODO: verify
+	EQT_ManaUpdate:            (*ManaUpdate)(nil),
+	EQT_NewZone:               (*NewZone)(nil),
+	EQT_StaminaUpdate:         (*StaminaUpdate)(nil),
+	EQT_MoveDoor:              (*MoveDoor)(nil),
+	EQT_SpawnAppearance:       (*SpawnAppearance)(nil),
+	EQT_Action:                (*Action)(nil),
+	EQT_BeginCast:             (*BeginCast)(nil),
+	EQT_Damage:                (*Damage)(nil),
+	EQT_ExpUpdate:             (*ExpUpdate)(nil),
+	EQT_Consider:              (*Consider)(nil),
+	EQT_Target:                (*Target)(nil),
+	EQT_HPUpdate:              (*HPUpdate)(nil),
+}
+
+func (t *EQType) TypeOf() reflect.Type {
+	typedNil, ok := typeRegistry[*t]
+	if !ok {
+		panic("missing type definition")
+	}
+
+	return reflect.TypeOf(typedNil).Elem()
+}
 
 type EQStruct interface {
 	EQType() EQType
