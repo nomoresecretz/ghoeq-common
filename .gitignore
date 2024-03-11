@@ -28,3 +28,6 @@ go.work.sum
 
 # VScode stuff
 .vscode/
+
+#debug stuff
+debug.log
