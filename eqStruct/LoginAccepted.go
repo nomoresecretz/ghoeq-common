@@ -1,5 +1,10 @@
 package eqStruct
 
+import (
+	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
+	"google.golang.org/protobuf/proto"
+)
+
 type LoginAccepted struct {
 	Account string // 00 Max 10
 
@@ -16,4 +21,14 @@ func (p *LoginAccepted) Unmarshal(b []byte) error {
 	}
 
 	return nil
+}
+
+func (p *LoginAccepted) Proto() *eqstruct.LoginInfo {
+	return &eqstruct.LoginInfo{
+		Account: p.Account,
+	}
+}
+
+func (p *LoginAccepted) ProtoMess() proto.Message {
+	return p.Proto()
 }

@@ -1,5 +1,10 @@
 package eqStruct
 
+import (
+	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
+	"google.golang.org/protobuf/proto"
+)
+
 type LoginInfo struct {
 	LoginInfo []byte // 000
 	Account   string
@@ -29,4 +34,17 @@ func (p *LoginInfo) Unmarshal(b []byte) error {
 	}
 
 	return nil
+}
+
+func (p *LoginInfo) Proto() *eqstruct.LoginInfo {
+	return &eqstruct.LoginInfo{
+		LoginInfo: p.LoginInfo,
+		Account:   p.Account,
+		Password:  p.Password,
+		Zoning:    uint32(p.Zoning),
+	}
+}
+
+func (p *LoginInfo) ProtoMess() proto.Message {
+	return p.Proto()
 }

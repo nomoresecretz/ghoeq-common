@@ -1,5 +1,10 @@
 package eqStruct
 
+import (
+	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
+	"google.golang.org/protobuf/proto"
+)
+
 type ServerZoneEntry struct {
 	Checksum  []byte  // 000 Len4
 	Type      uint8   // 004
@@ -102,4 +107,33 @@ func (p *ServerZoneEntry) Unmarshal(b []byte) error {
 	}
 
 	return nil
+}
+
+func (p *ServerZoneEntry) Proto() *eqstruct.ZoneEntry {
+	return &eqstruct.ZoneEntry{
+		Checksum:   p.Checksum,
+		Type:       uint32(p.Type),
+		Name:       p.Name,
+		Unknown_70: p.Unknown70,
+		ZoneId:     p.ZoneId,
+		PosY:       p.PosY,
+		PosX:       p.PosX,
+		PosZ:       p.PosZ,
+		Heading:    p.Heading,
+		MyChar:     p.MyChar,
+		HpMax:      p.HPMax,
+		HpCur:      p.HPCur,
+		GuildId:    int32(p.GuildId),
+		Class:      uint32(p.Class),
+		Race:       uint32(p.Race),
+		Gender:     uint32(p.Gender),
+		Level:      uint32(p.Level),
+		Invis:      uint32(p.Invis),
+		Sneaking:   uint32(p.Sneaking),
+		Pvp:        uint32(p.PVP),
+	}
+}
+
+func (p *ServerZoneEntry) ProtoMess() proto.Message {
+	return p.Proto()
 }

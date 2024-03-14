@@ -55,3 +55,27 @@ message NewZone {
     uint32 script_npc_dead = 43;
     uint32 script_player_entering = 44;
 }
+
+message ZoneEntry {
+    uint32 type = 1;
+    string name = 2;
+    uint32 zone_id = 3;
+    float pos_y = 4;
+    float pos_x = 5;
+    float pos_z = 6;
+    float heading = 7;
+    int32 my_char = 8;
+    uint32 hp_max = 9;
+    uint32 hp_cur = 10;
+    int32 guild_id = 11;
+    uint32 class = 12;
+    uint32 race = 13;
+    uint32 gender = 14;
+    uint32 level = 15;
+    uint32 invis = 16;
+    uint32 sneaking = 17;
+    uint32 pvp = 18;
+
+    bytes checksum = 19;
+    bytes unknown_70 = 20;
+}

@@ -1,5 +1,10 @@
 package eqStruct
 
+import (
+	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
+	"google.golang.org/protobuf/proto"
+)
+
 type PlayRequest struct {
 	IP       string // 000
 	bPointer int
@@ -16,4 +21,14 @@ func (p *PlayRequest) Unmarshal(b []byte) error {
 	}
 
 	return nil
+}
+
+func (p *PlayRequest) Proto() *eqstruct.PlayRequest {
+	return &eqstruct.PlayRequest{
+		IP: p.IP,
+	}
+}
+
+func (p *PlayRequest) ProtoMess() proto.Message {
+	return p.Proto()
 }

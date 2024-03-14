@@ -340,6 +340,10 @@ func (p *ZoneSpawns) Proto() *eqstruct.Spawns {
 	}
 }
 
+func (p *ZoneSpawn) ProtoMess() proto.Message {
+	return p.Proto()
+}
+
 func (p *ZoneSpawns) ProtoMess() proto.Message {
 	return p.Proto()
 }

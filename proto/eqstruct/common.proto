@@ -16,3 +16,7 @@ message DataStruct {
     StructType type = 1;
     google.protobuf.Any msg = 2;
 }
+
+message PlayRequest {
+    string IP = 1;
+}

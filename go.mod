@@ -10,13 +10,9 @@ require (
 )
 
 require (
-	github.com/alvaroloes/enumer v1.1.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/pascaldekloe/name v0.0.0-20180628100202-0fd16699aae1 // indirect
-	golang.org/x/mod v0.16.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	golang.org/x/tools v0.19.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231106174013-bbf56f31fb17 // indirect
 )

@@ -1,5 +1,10 @@
 package eqStruct
 
+import (
+	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
+	"google.golang.org/protobuf/proto"
+)
+
 type LogServer struct {
 	ShortName string // 032 Max32
 	Address   string // 112 Max16
@@ -26,4 +31,16 @@ func (p *LogServer) Unmarshal(b []byte) error {
 	}
 
 	return nil
+}
+
+func (p *LogServer) Proto() *eqstruct.LogServer {
+	return &eqstruct.LogServer{
+		ShortName: p.ShortName,
+		Address:   p.Address,
+		Port:      p.Port,
+	}
+}
+
+func (p *LogServer) ProtoMess() proto.Message {
+	return p.Proto()
 }

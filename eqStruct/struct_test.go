@@ -1,6 +1,7 @@
 package eqStruct
 
 import (
+	"encoding/base64"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -8,19 +9,20 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/kr/pretty"
+	"google.golang.org/protobuf/encoding/prototext"
 )
 
 func TestStructs(t *testing.T) {
 	// Find the paths of all input files in the data directory.
-	paths, err := filepath.Glob(filepath.Join("testdata", "*", "*.input"))
+	paths, err := filepath.Glob(filepath.Join("testdata", "**", "*.input"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	for _, path := range paths {
-		_, filename := filepath.Split(path)
-		testname := filename[:len(filename)-len(filepath.Ext(path))]
+		folder, filename := filepath.Split(path)
+		testname := filename[:len(filename)-len(filepath.Ext(filename))]
 
 		// Each path turns into a test: the test name is the filename without the
 		// extension.
@@ -29,6 +31,13 @@ func TestStructs(t *testing.T) {
 			if err != nil {
 				t.Fatal("error reading source file:", err)
 			}
+
+			out := make([]byte, len(source))
+			l, err := base64.StdEncoding.Decode(out, source)
+			if err != nil {
+				t.Fatalf("failed to decode input: %s", err)
+			}
+			out = out[:l]
 
 			typeString, _, _ := strings.Cut(testname, "-")
 			eqTstr := fmt.Sprintf("EQT_%s", typeString)
@@ -39,22 +48,29 @@ func TestStructs(t *testing.T) {
 			}
 
 			obj := reflect.New(eqT.TypeOf()).Interface()
-			got, ok := obj.(EQStruct)
+			eqS, ok := obj.(EQStruct)
 			if !ok {
 				t.Fatalf("invalid type: %T", obj)
 			}
 
-			genericUnmarshal(t, got, source)
+			genericUnmarshal(t, eqS, out)
+
+			got, err := prototext.Marshal(eqS.ProtoMess())
+			if err != nil {
+				t.Fatalf("failed to marshal text proto: %s", err)
+			}
 
 			// Each input file is expected to have a "golden output" file, with the
 			// same path except the .input extension is replaced by .golden
-			goldenfile := filepath.Join("testdata", testname+".golden")
+			goldenfile := filepath.Join(folder, testname+".golden")
 			want, err := os.ReadFile(goldenfile)
 			if err != nil {
 				t.Fatal("error reading golden file:", err)
 			}
 
-			if diff := cmp.Diff(want, got); diff != "" {
+			
+
+			if diff := pretty.Diff(want, got); len(diff) != 0 {
 				t.Errorf("test diff: %s", diff)
 			}
 		})
@@ -65,4 +81,10 @@ func genericUnmarshal[S EQStruct](t *testing.T, s S, b []byte) error {
 	t.Helper()
 
 	return s.Unmarshal(b)
+}
+
+func genericUnmarshalText[S EQStruct](t *testing.T, s S, str string) error {
+	t.Helper()
+
+	return nil
 }

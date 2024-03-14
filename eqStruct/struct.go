@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
+	"google.golang.org/protobuf/proto"
 )
 
 //go:generate enumer -type=EQType
@@ -86,6 +87,7 @@ type EQStruct interface {
 	EQType() EQType
 	bp() *int
 	Unmarshal(b []byte) error // This is only temporary until the VM is implemented.
+	ProtoMess() proto.Message
 }
 
 type EQTypes interface {
