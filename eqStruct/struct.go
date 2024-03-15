@@ -274,12 +274,13 @@ func EQReadBytes(b []byte, s EQStruct, field *[]byte, maxLength int) error {
 func EQReadString(b []byte, s EQStruct, field *string, maxLength int) error {
 	p := s.bp()
 
-	stop := min(len(b), *p+maxLength+1)
+	stop := min(len(b), *p+maxLength)
 	bh := make([]byte, stop)
 	copy(bh, b[*p:stop])
 	bh = bytes.Trim(bh, "\x00")
 	*field = string(bh)
-	*p += stop - 1
+	lg := stop - *p
+	*p += lg
 
 	return nil
 }
