@@ -21,41 +21,41 @@ type SpawnPositionUpdate struct {
 func (p *SpawnPositionUpdate) EQType() EQType { return EQT_SpawnPositionUpdate }
 func (p *SpawnPositionUpdate) bp() *int       { return &p.bPointer }
 
-func (p *SpawnPositionUpdate) Unmarshal(b []byte) error {
+func (p *SpawnPositionUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.AnimType, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Heading, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.HeadingDelta, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Y, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.X, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Z, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.XYZDelta, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 type SpawnPositionUpdates struct {
@@ -68,25 +68,25 @@ type SpawnPositionUpdates struct {
 func (p *SpawnPositionUpdates) EQType() EQType { return EQT_SpawnPositionUpdates }
 func (p *SpawnPositionUpdates) bp() *int       { return &p.bPointer }
 
-func (p *SpawnPositionUpdates) Unmarshal(b []byte) error {
+func (p *SpawnPositionUpdates) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.Count, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.Updates = make([]*SpawnPositionUpdate, p.Count)
 	for i := range p.Count {
 		upd := &SpawnPositionUpdate{}
-		err := upd.Unmarshal(b[p.bPointer:])
+		bp, err := upd.Unmarshal(b[p.bPointer:])
 		if err != nil {
-			return err
+			return 0, err
 		}
-		p.bPointer += upd.bPointer
+		p.bPointer += bp
 		p.Updates[i] = upd
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *SpawnPositionUpdate) Proto() *pb.SpawnPosition {

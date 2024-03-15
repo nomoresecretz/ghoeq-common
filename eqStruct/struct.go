@@ -49,6 +49,23 @@ const (
 	EQT_ServerMOTD
 	EQT_WearChange
 	EQT_TintStruct
+	EQT_Death
+	EQT_RaidGeneral
+	EQT_RaidAddMember
+	EQT_RaidCreate
+	EQT_WorldApprove
+	EQT_GuildsList
+	EQT_GuildEntry
+	EQT_GuildUpdate
+	EQT_ZonePoints
+	EQT_ZonePoint
+	EQT_LFG
+	EQT_Weather
+	EQT_Time
+	EQT_SpawnDoor
+	EQT_SpawnDoors
+	EQT_LFGAppearance
+	EQT_ChannelMessage
 )
 
 var typeRegistry = map[EQType]any{
@@ -84,6 +101,23 @@ var typeRegistry = map[EQType]any{
 	EQT_ServerMOTD:            (*ServerMOTD)(nil),
 	EQT_WearChange:            (*WearChange)(nil),
 	EQT_TintStruct:            (*TintStruct)(nil),
+	EQT_Death:                 (*Death)(nil),
+	EQT_RaidGeneral:           (*RaidGeneral)(nil),
+	EQT_RaidAddMember:         (*RaidAddMember)(nil),
+	EQT_RaidCreate:            (*RaidCreate)(nil),
+	EQT_WorldApprove:          (*WorldApprove)(nil),
+	EQT_GuildsList:            (*GuildsList)(nil),
+	EQT_GuildEntry:            (*GuildEntry)(nil),
+	EQT_GuildUpdate:           (*GuildUpdate)(nil),
+	EQT_ZonePoints:            (*GuildUpdate)(nil),
+	EQT_ZonePoint:             (*ZonePoint)(nil),
+	EQT_LFG:                   (*LFG)(nil),
+	EQT_Weather:               (*Weather)(nil),
+	EQT_Time:                  (*Time)(nil),
+	EQT_SpawnDoor:             (*SpawnDoor)(nil),
+	EQT_SpawnDoors:            (*SpawnDoors)(nil),
+	EQT_LFGAppearance:         (*LFGAppearance)(nil),
+	EQT_ChannelMessage:        (*ChannelMessage)(nil),
 }
 
 func (t *EQType) TypeOf() reflect.Type {
@@ -98,7 +132,7 @@ func (t *EQType) TypeOf() reflect.Type {
 type EQStruct interface {
 	EQType() EQType
 	bp() *int
-	Unmarshal(b []byte) error // This is only temporary until the VM is implemented.
+	Unmarshal(b []byte) (int, error) // This is only temporary until the VM is implemented.
 	ProtoMess() proto.Message
 }
 
@@ -240,12 +274,12 @@ func EQReadBytes(b []byte, s EQStruct, field *[]byte, maxLength int) error {
 func EQReadString(b []byte, s EQStruct, field *string, maxLength int) error {
 	p := s.bp()
 
-	bh := make([]byte, maxLength)
 	stop := min(len(b), *p+maxLength+1)
+	bh := make([]byte, stop)
 	copy(bh, b[*p:stop])
 	bh = bytes.Trim(bh, "\x00")
 	*field = string(bh)
-	*p += maxLength
+	*p += stop - 1
 
 	return nil
 }

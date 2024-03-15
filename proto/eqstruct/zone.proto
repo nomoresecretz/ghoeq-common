@@ -84,3 +84,29 @@ message ZoneEntryClient {
     uint32 unknown_000 = 1;
     string char_name = 2;
 }
+
+message ZonePoints {
+    repeated ZonePoint zone_points = 1;
+}
+
+message ZonePoint {
+    uint32 iterator = 1;
+    float x = 2;
+    float y = 3;
+    float z = 4;
+    float heading = 5;
+    uint32 zone_id = 6;
+}
+
+message Weather {
+    uint32 type = 1;
+    uint32 intensity = 2;
+}
+
+message Time {
+    uint32 hour = 1;
+    uint32 minute = 2;
+    uint32 day = 3;
+    uint32 month = 4;
+    uint32 year = 5;
+}

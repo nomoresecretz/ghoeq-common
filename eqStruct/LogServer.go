@@ -16,21 +16,21 @@ type LogServer struct {
 func (p *LogServer) EQType() EQType { return EQT_LogServer }
 func (p *LogServer) bp() *int       { return &p.bPointer }
 
-func (p *LogServer) Unmarshal(b []byte) error {
+func (p *LogServer) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 32
 	if err := EQRead(b, p, &p.ShortName, 32); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Address, 32); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Port, 32); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *LogServer) Proto() *eqstruct.LogServer {

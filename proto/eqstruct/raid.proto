@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message RaidGeneral {
+    uint32 action = 1;
+    string player_name = 2;
+    string leader_name = 3;
+    uint32 parameter = 4;
+}
+
+message RaidAddMember {
+    RaidGeneral raid_general = 1;
+    uint32 class = 2;
+    uint32 level = 3;
+    uint32 group_leader_flag = 4;
+    //flags here if needed
+}
+
+message RaidCreate {
+    uint32 action = 1;
+    string leader_name = 2;
+    uint32 leader_id = 3;
+}

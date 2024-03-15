@@ -14,14 +14,14 @@ type EnterWorld struct {
 func (p *EnterWorld) EQType() EQType { return EQT_EnterWorld }
 func (p *EnterWorld) bp() *int       { return &p.bPointer }
 
-func (p *EnterWorld) Unmarshal(b []byte) error {
+func (p *EnterWorld) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.Name, 64); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *EnterWorld) Proto() *eqstruct.EnterWorld {

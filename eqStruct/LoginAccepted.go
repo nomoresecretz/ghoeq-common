@@ -14,13 +14,13 @@ type LoginAccepted struct {
 func (p *LoginAccepted) EQType() EQType { return EQT_LoginAccepted }
 func (p *LoginAccepted) bp() *int       { return &p.bPointer }
 
-func (p *LoginAccepted) Unmarshal(b []byte) error {
+func (p *LoginAccepted) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 	if err := EQRead(b, p, &p.Account, 10); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *LoginAccepted) Proto() *eqstruct.LoginInfo {

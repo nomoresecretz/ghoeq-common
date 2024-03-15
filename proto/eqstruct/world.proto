@@ -12,3 +12,8 @@ message ServerMOTD {
     string name = 1;
     string message = 2;
 }
+
+message WorldApprove {
+    uint32 response = 1;
+    string name = 2;
+}

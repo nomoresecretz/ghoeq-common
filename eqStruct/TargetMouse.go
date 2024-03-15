@@ -14,14 +14,14 @@ type Target struct {
 func (p *Target) EQType() EQType { return EQT_Target }
 func (p *Target) bp() *int       { return &p.bPointer }
 
-func (p *Target) Unmarshal(b []byte) error {
+func (p *Target) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.TargetID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *Target) Proto() *eqstruct.Target {

@@ -13,14 +13,14 @@ type PlayRequest struct {
 func (p *PlayRequest) EQType() EQType { return EQT_PlayRequest }
 func (p *PlayRequest) bp() *int       { return &p.bPointer }
 
-func (p *PlayRequest) Unmarshal(b []byte) error {
+func (p *PlayRequest) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.IP, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *PlayRequest) Proto() *eqstruct.PlayRequest {

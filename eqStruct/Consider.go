@@ -20,38 +20,38 @@ type Consider struct {
 func (p *Consider) EQType() EQType { return EQT_Consider }
 func (p *Consider) bp() *int       { return &p.bPointer }
 
-func (p *Consider) Unmarshal(b []byte) error {
+func (p *Consider) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.PlayerID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.TargetID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Faction, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Level, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.HPCur, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.HPMax, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.PVPCon, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *Consider) Proto() *eqstruct.Consider {

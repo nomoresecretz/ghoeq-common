@@ -16,22 +16,22 @@ type HPUpdate struct {
 func (p *HPUpdate) EQType() EQType { return EQT_HPUpdate }
 func (p *HPUpdate) bp() *int       { return &p.bPointer }
 
-func (p *HPUpdate) Unmarshal(b []byte) error {
+func (p *HPUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.HPCur, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.HPMax, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *HPUpdate) Proto() *eqstruct.HPUpdate {

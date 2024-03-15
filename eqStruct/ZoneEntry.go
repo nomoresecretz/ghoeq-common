@@ -33,80 +33,80 @@ type ZoneEntryServer struct {
 func (p *ZoneEntryServer) EQType() EQType { return EQT_ZoneEntryServer }
 func (p *ZoneEntryServer) bp() *int       { return &p.bPointer }
 
-func (p *ZoneEntryServer) Unmarshal(b []byte) error {
+func (p *ZoneEntryServer) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.Checksum, 4); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Type, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Name, 64); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.bPointer = 70
 	if err := EQRead(b, p, &p.Unknown70, 2); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.ZoneId, 2); err != nil {
-		return err
+		return 0, err
 	}
 
 	/*
 		if err := EQRead(b, p, &p.PosX, 2); err != nil {
-			return err
+			return 0, err
 		}
 		if err := EQRead(b, p, &p.PosY, 2); err != nil {
-			return err
+			return 0, err
 		}
 		if err := EQRead(b, p, &p.PosZ, 2); err != nil {
-			return err
+			return 0, err
 		}
 		if err := EQRead(b, p, &p.Heading, 2); err != nil {
-			return err
+			return 0, err
 		}
 	*/
 
 	p.bPointer = 156
 	if err := EQRead(b, p, &p.HPMax, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.HPCur, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.GuildId, 2); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.bPointer = 173
 	if err := EQRead(b, p, &p.Class, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.Race, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.Gender, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.Level, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.Invis, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.Sneaking, 2); err != nil {
-		return err
+		return 0, err
 	}
 	if err := EQRead(b, p, &p.PVP, 2); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ZoneEntryServer) Proto() *eqstruct.ZoneEntryServer {
@@ -148,18 +148,18 @@ type ZoneEntryClient struct {
 func (p *ZoneEntryClient) EQType() EQType { return EQT_ZoneEntryClient }
 func (p *ZoneEntryClient) bp() *int       { return &p.bPointer }
 
-func (p *ZoneEntryClient) Unmarshal(b []byte) error {
+func (p *ZoneEntryClient) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.Unknown000, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.CharName, 64); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ZoneEntryClient) Proto() *eqstruct.ZoneEntryClient {

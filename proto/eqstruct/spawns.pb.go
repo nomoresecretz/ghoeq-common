@@ -901,6 +901,188 @@ func (x *DeleteSpawn) GetSpawnId() uint32 {
 	return 0
 }
 
+type SpawnDoor struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Name      string  `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Y         float32 `protobuf:"fixed32,2,opt,name=y,proto3" json:"y,omitempty"`
+	X         float32 `protobuf:"fixed32,3,opt,name=x,proto3" json:"x,omitempty"`
+	Z         float32 `protobuf:"fixed32,4,opt,name=z,proto3" json:"z,omitempty"`
+	Heading   float32 `protobuf:"fixed32,5,opt,name=heading,proto3" json:"heading,omitempty"`
+	Incline   uint32  `protobuf:"varint,6,opt,name=incline,proto3" json:"incline,omitempty"`
+	Size      uint32  `protobuf:"varint,7,opt,name=size,proto3" json:"size,omitempty"`
+	DoorId    uint32  `protobuf:"varint,8,opt,name=door_id,json=doorId,proto3" json:"door_id,omitempty"`
+	OpenType  uint32  `protobuf:"varint,9,opt,name=open_type,json=openType,proto3" json:"open_type,omitempty"`
+	OpenFlag  uint32  `protobuf:"varint,10,opt,name=open_flag,json=openFlag,proto3" json:"open_flag,omitempty"`
+	Inverted  uint32  `protobuf:"varint,11,opt,name=inverted,proto3" json:"inverted,omitempty"`
+	Parameter uint32  `protobuf:"varint,12,opt,name=parameter,proto3" json:"parameter,omitempty"`
+}
+
+func (x *SpawnDoor) Reset() {
+	*x = SpawnDoor{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_spawns_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SpawnDoor) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpawnDoor) ProtoMessage() {}
+
+func (x *SpawnDoor) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_spawns_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpawnDoor.ProtoReflect.Descriptor instead.
+func (*SpawnDoor) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_spawns_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *SpawnDoor) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *SpawnDoor) GetY() float32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetX() float32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetZ() float32 {
+	if x != nil {
+		return x.Z
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetHeading() float32 {
+	if x != nil {
+		return x.Heading
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetIncline() uint32 {
+	if x != nil {
+		return x.Incline
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetSize() uint32 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetDoorId() uint32 {
+	if x != nil {
+		return x.DoorId
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetOpenType() uint32 {
+	if x != nil {
+		return x.OpenType
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetOpenFlag() uint32 {
+	if x != nil {
+		return x.OpenFlag
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetInverted() uint32 {
+	if x != nil {
+		return x.Inverted
+	}
+	return 0
+}
+
+func (x *SpawnDoor) GetParameter() uint32 {
+	if x != nil {
+		return x.Parameter
+	}
+	return 0
+}
+
+type SpawnDoors struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Doors []*SpawnDoor `protobuf:"bytes,1,rep,name=doors,proto3" json:"doors,omitempty"`
+}
+
+func (x *SpawnDoors) Reset() {
+	*x = SpawnDoors{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_spawns_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SpawnDoors) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpawnDoors) ProtoMessage() {}
+
+func (x *SpawnDoors) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_spawns_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpawnDoors.ProtoReflect.Descriptor instead.
+func (*SpawnDoors) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_spawns_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SpawnDoors) GetDoors() []*SpawnDoor {
+	if x != nil {
+		return x.Doors
+	}
+	return nil
+}
+
 var File_proto_eqstruct_spawns_proto protoreflect.FileDescriptor
 
 var file_proto_eqstruct_spawns_proto_rawDesc = []byte{
@@ -1032,11 +1214,33 @@ var file_proto_eqstruct_spawns_proto_rawDesc = []byte{
 	0x0d, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x49, 0x64, 0x22, 0x28,
 	0x0a, 0x0b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x70, 0x61, 0x77, 0x6e, 0x12, 0x19, 0x0a,
 	0x08, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
-	0x07, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x49, 0x64, 0x42, 0x36, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68,
-	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6f, 0x6d, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x63,
-	0x72, 0x65, 0x74, 0x7a, 0x2f, 0x67, 0x68, 0x6f, 0x65, 0x71, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
-	0x6e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x71, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x07, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x49, 0x64, 0x22, 0x9e, 0x02, 0x0a, 0x09, 0x53, 0x70, 0x61,
+	0x77, 0x6e, 0x44, 0x6f, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x0c, 0x0a, 0x01, 0x79, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x79, 0x12, 0x0c, 0x0a, 0x01, 0x78, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x02, 0x52, 0x01, 0x78, 0x12, 0x0c, 0x0a, 0x01, 0x7a, 0x18, 0x04, 0x20, 0x01, 0x28,
+	0x02, 0x52, 0x01, 0x7a, 0x12, 0x18, 0x0a, 0x07, 0x68, 0x65, 0x61, 0x64, 0x69, 0x6e, 0x67, 0x18,
+	0x05, 0x20, 0x01, 0x28, 0x02, 0x52, 0x07, 0x68, 0x65, 0x61, 0x64, 0x69, 0x6e, 0x67, 0x12, 0x18,
+	0x0a, 0x07, 0x69, 0x6e, 0x63, 0x6c, 0x69, 0x6e, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x07, 0x69, 0x6e, 0x63, 0x6c, 0x69, 0x6e, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x73, 0x69, 0x7a, 0x65,
+	0x18, 0x07, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x12, 0x17, 0x0a, 0x07,
+	0x64, 0x6f, 0x6f, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x64,
+	0x6f, 0x6f, 0x72, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x70, 0x65, 0x6e, 0x5f, 0x74, 0x79,
+	0x70, 0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x6e, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x70, 0x65, 0x6e, 0x5f, 0x66, 0x6c, 0x61, 0x67, 0x18,
+	0x0a, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x6e, 0x46, 0x6c, 0x61, 0x67, 0x12,
+	0x1a, 0x0a, 0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x18, 0x0b, 0x20, 0x01, 0x28,
+	0x0d, 0x52, 0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x70,
+	0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09,
+	0x70, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x22, 0x37, 0x0a, 0x0a, 0x53, 0x70, 0x61,
+	0x77, 0x6e, 0x44, 0x6f, 0x6f, 0x72, 0x73, 0x12, 0x29, 0x0a, 0x05, 0x64, 0x6f, 0x6f, 0x72, 0x73,
+	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x65, 0x71, 0x73, 0x74, 0x72, 0x75, 0x63,
+	0x74, 0x2e, 0x53, 0x70, 0x61, 0x77, 0x6e, 0x44, 0x6f, 0x6f, 0x72, 0x52, 0x05, 0x64, 0x6f, 0x6f,
+	0x72, 0x73, 0x42, 0x36, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x6e, 0x6f, 0x6d, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x7a, 0x2f, 0x67,
+	0x68, 0x6f, 0x65, 0x71, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2f, 0x65, 0x71, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -1051,7 +1255,7 @@ func file_proto_eqstruct_spawns_proto_rawDescGZIP() []byte {
 	return file_proto_eqstruct_spawns_proto_rawDescData
 }
 
-var file_proto_eqstruct_spawns_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_eqstruct_spawns_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_proto_eqstruct_spawns_proto_goTypes = []interface{}{
 	(*Spawn)(nil),           // 0: eqstruct.Spawn
 	(*Spawns)(nil),          // 1: eqstruct.Spawns
@@ -1060,15 +1264,18 @@ var file_proto_eqstruct_spawns_proto_goTypes = []interface{}{
 	(*SpawnAppearance)(nil), // 4: eqstruct.SpawnAppearance
 	(*Object)(nil),          // 5: eqstruct.Object
 	(*DeleteSpawn)(nil),     // 6: eqstruct.DeleteSpawn
+	(*SpawnDoor)(nil),       // 7: eqstruct.SpawnDoor
+	(*SpawnDoors)(nil),      // 8: eqstruct.SpawnDoors
 }
 var file_proto_eqstruct_spawns_proto_depIdxs = []int32{
 	0, // 0: eqstruct.Spawns.spawns:type_name -> eqstruct.Spawn
 	2, // 1: eqstruct.SpawnPositions.positions:type_name -> eqstruct.SpawnPosition
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	7, // 2: eqstruct.SpawnDoors.doors:type_name -> eqstruct.SpawnDoor
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_eqstruct_spawns_proto_init() }
@@ -1161,6 +1368,30 @@ func file_proto_eqstruct_spawns_proto_init() {
 				return nil
 			}
 		}
+		file_proto_eqstruct_spawns_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SpawnDoor); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_spawns_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SpawnDoors); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1168,7 +1399,7 @@ func file_proto_eqstruct_spawns_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_eqstruct_spawns_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

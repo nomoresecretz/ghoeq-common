@@ -16,22 +16,22 @@ type BeginCast struct {
 func (p *BeginCast) EQType() EQType { return EQT_BeginCast }
 func (p *BeginCast) bp() *int       { return &p.bPointer }
 
-func (p *BeginCast) Unmarshal(b []byte) error {
+func (p *BeginCast) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.CasterID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.SpellID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.CastTime, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *BeginCast) Proto() *eqstruct.BeginCast {

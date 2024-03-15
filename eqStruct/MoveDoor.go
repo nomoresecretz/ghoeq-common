@@ -15,18 +15,18 @@ type MoveDoor struct {
 func (p *MoveDoor) EQType() EQType { return EQT_MoveDoor }
 func (p *MoveDoor) bp() *int       { return &p.bPointer }
 
-func (p *MoveDoor) Unmarshal(b []byte) error {
+func (p *MoveDoor) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.DoorID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Action, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *MoveDoor) Proto() *eqstruct.MoveDoor {

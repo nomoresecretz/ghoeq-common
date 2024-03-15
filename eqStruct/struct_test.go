@@ -78,7 +78,7 @@ func TestStructs(t *testing.T) {
 	}
 }
 
-func genericUnmarshal[S EQStruct](t *testing.T, s S, b []byte) error {
+func genericUnmarshal[S EQStruct](t *testing.T, s S, b []byte) (int, error) {
 	t.Helper()
 
 	return s.Unmarshal(b)

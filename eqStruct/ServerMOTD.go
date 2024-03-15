@@ -15,18 +15,18 @@ type ServerMOTD struct {
 func (p *ServerMOTD) EQType() EQType { return EQT_ServerMOTD }
 func (p *ServerMOTD) bp() *int       { return &p.bPointer }
 
-func (p *ServerMOTD) Unmarshal(b []byte) error {
+func (p *ServerMOTD) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.Name, 64); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Message, 512); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ServerMOTD) Proto() *eqstruct.ServerMOTD {

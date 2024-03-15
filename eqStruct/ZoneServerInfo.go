@@ -14,18 +14,18 @@ type ZoneServerInfo struct {
 func (p *ZoneServerInfo) EQType() EQType { return EQT_ZoneServerInfo }
 func (p *ZoneServerInfo) bp() *int       { return &p.bPointer }
 
-func (p *ZoneServerInfo) Unmarshal(b []byte) error {
+func (p *ZoneServerInfo) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.IP, 128); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Port, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ZoneServerInfo) Proto() *eqstruct.ZoneServerInfo {

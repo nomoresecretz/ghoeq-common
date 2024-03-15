@@ -16,21 +16,21 @@ type StaminaUpdate struct {
 func (p *StaminaUpdate) EQType() EQType { return EQT_StaminaUpdate }
 func (p *StaminaUpdate) bp() *int       { return &p.bPointer }
 
-func (p *StaminaUpdate) Unmarshal(b []byte) error {
+func (p *StaminaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 	if err := EQReadLittleEndian(b, p, &p.Food, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Water, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Fatigue, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *StaminaUpdate) Proto() *pb.StaminaUpdate {

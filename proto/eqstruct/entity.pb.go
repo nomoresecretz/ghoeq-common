@@ -573,6 +573,227 @@ func (x *TintStruct) GetUse() uint32 {
 	return 0
 }
 
+type Death struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	SpawnId     uint32 `protobuf:"varint,1,opt,name=spawn_id,json=spawnId,proto3" json:"spawn_id,omitempty"`
+	KillerId    uint32 `protobuf:"varint,2,opt,name=killer_id,json=killerId,proto3" json:"killer_id,omitempty"`
+	CorpseId    uint32 `protobuf:"varint,3,opt,name=corpse_id,json=corpseId,proto3" json:"corpse_id,omitempty"`
+	SpawnLevel  uint32 `protobuf:"varint,4,opt,name=spawn_level,json=spawnLevel,proto3" json:"spawn_level,omitempty"`
+	SpellId     uint32 `protobuf:"varint,5,opt,name=spell_id,json=spellId,proto3" json:"spell_id,omitempty"`
+	AttackSkill uint32 `protobuf:"varint,6,opt,name=attack_skill,json=attackSkill,proto3" json:"attack_skill,omitempty"`
+	Damage      uint32 `protobuf:"varint,7,opt,name=damage,proto3" json:"damage,omitempty"`
+	IsPc        uint32 `protobuf:"varint,8,opt,name=is_pc,json=isPc,proto3" json:"is_pc,omitempty"`
+}
+
+func (x *Death) Reset() {
+	*x = Death{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_entity_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Death) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Death) ProtoMessage() {}
+
+func (x *Death) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_entity_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Death.ProtoReflect.Descriptor instead.
+func (*Death) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_entity_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Death) GetSpawnId() uint32 {
+	if x != nil {
+		return x.SpawnId
+	}
+	return 0
+}
+
+func (x *Death) GetKillerId() uint32 {
+	if x != nil {
+		return x.KillerId
+	}
+	return 0
+}
+
+func (x *Death) GetCorpseId() uint32 {
+	if x != nil {
+		return x.CorpseId
+	}
+	return 0
+}
+
+func (x *Death) GetSpawnLevel() uint32 {
+	if x != nil {
+		return x.SpawnLevel
+	}
+	return 0
+}
+
+func (x *Death) GetSpellId() uint32 {
+	if x != nil {
+		return x.SpellId
+	}
+	return 0
+}
+
+func (x *Death) GetAttackSkill() uint32 {
+	if x != nil {
+		return x.AttackSkill
+	}
+	return 0
+}
+
+func (x *Death) GetDamage() uint32 {
+	if x != nil {
+		return x.Damage
+	}
+	return 0
+}
+
+func (x *Death) GetIsPc() uint32 {
+	if x != nil {
+		return x.IsPc
+	}
+	return 0
+}
+
+type LFG struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Name  string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Value uint32 `protobuf:"varint,2,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *LFG) Reset() {
+	*x = LFG{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_entity_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LFG) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LFG) ProtoMessage() {}
+
+func (x *LFG) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_entity_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LFG.ProtoReflect.Descriptor instead.
+func (*LFG) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_entity_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *LFG) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *LFG) GetValue() uint32 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+type LFGAppearance struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	EntityId int32 `protobuf:"varint,1,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
+	Value    int32 `protobuf:"varint,2,opt,name=value,proto3" json:"value,omitempty"`
+	Unknown  int32 `protobuf:"varint,3,opt,name=unknown,proto3" json:"unknown,omitempty"`
+}
+
+func (x *LFGAppearance) Reset() {
+	*x = LFGAppearance{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_entity_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LFGAppearance) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LFGAppearance) ProtoMessage() {}
+
+func (x *LFGAppearance) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_entity_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LFGAppearance.ProtoReflect.Descriptor instead.
+func (*LFGAppearance) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_entity_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *LFGAppearance) GetEntityId() int32 {
+	if x != nil {
+		return x.EntityId
+	}
+	return 0
+}
+
+func (x *LFGAppearance) GetValue() int32 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+func (x *LFGAppearance) GetUnknown() int32 {
+	if x != nil {
+		return x.Unknown
+	}
+	return 0
+}
+
 var File_proto_eqstruct_entity_proto protoreflect.FileDescriptor
 
 var file_proto_eqstruct_entity_proto_rawDesc = []byte{
@@ -641,11 +862,35 @@ var file_proto_eqstruct_entity_proto_rawDesc = []byte{
 	0x65, 0x12, 0x14, 0x0a, 0x05, 0x67, 0x72, 0x65, 0x65, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d,
 	0x52, 0x05, 0x67, 0x72, 0x65, 0x65, 0x6e, 0x12, 0x10, 0x0a, 0x03, 0x72, 0x65, 0x64, 0x18, 0x03,
 	0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x72, 0x65, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x73, 0x65,
-	0x18, 0x04, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x75, 0x73, 0x65, 0x42, 0x36, 0x5a, 0x34, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6f, 0x6d, 0x6f, 0x72, 0x65,
-	0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x7a, 0x2f, 0x67, 0x68, 0x6f, 0x65, 0x71, 0x2d, 0x63, 0x6f,
-	0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x71, 0x73, 0x74, 0x72,
-	0x75, 0x63, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x75, 0x73, 0x65, 0x22, 0xe8, 0x01, 0x0a, 0x05,
+	0x44, 0x65, 0x61, 0x74, 0x68, 0x12, 0x19, 0x0a, 0x08, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x5f, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x49, 0x64,
+	0x12, 0x1b, 0x0a, 0x09, 0x6b, 0x69, 0x6c, 0x6c, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0d, 0x52, 0x08, 0x6b, 0x69, 0x6c, 0x6c, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1b, 0x0a,
+	0x09, 0x63, 0x6f, 0x72, 0x70, 0x73, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x08, 0x63, 0x6f, 0x72, 0x70, 0x73, 0x65, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x70,
+	0x61, 0x77, 0x6e, 0x5f, 0x6c, 0x65, 0x76, 0x65, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x0a, 0x73, 0x70, 0x61, 0x77, 0x6e, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x12, 0x19, 0x0a, 0x08, 0x73,
+	0x70, 0x65, 0x6c, 0x6c, 0x5f, 0x69, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x73,
+	0x70, 0x65, 0x6c, 0x6c, 0x49, 0x64, 0x12, 0x21, 0x0a, 0x0c, 0x61, 0x74, 0x74, 0x61, 0x63, 0x6b,
+	0x5f, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x61, 0x74,
+	0x74, 0x61, 0x63, 0x6b, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x12, 0x16, 0x0a, 0x06, 0x64, 0x61, 0x6d,
+	0x61, 0x67, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x64, 0x61, 0x6d, 0x61, 0x67,
+	0x65, 0x12, 0x13, 0x0a, 0x05, 0x69, 0x73, 0x5f, 0x70, 0x63, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x04, 0x69, 0x73, 0x50, 0x63, 0x22, 0x2f, 0x0a, 0x03, 0x4c, 0x46, 0x47, 0x12, 0x12, 0x0a,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x5c, 0x0a, 0x0d, 0x4c, 0x46, 0x47, 0x41, 0x70,
+	0x70, 0x65, 0x61, 0x72, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x65, 0x6e, 0x74, 0x69,
+	0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x65, 0x6e, 0x74,
+	0x69, 0x74, 0x79, 0x49, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x75,
+	0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x07, 0x75, 0x6e,
+	0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x42, 0x36, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6f, 0x6d, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74,
+	0x7a, 0x2f, 0x67, 0x68, 0x6f, 0x65, 0x71, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x71, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -660,15 +905,18 @@ func file_proto_eqstruct_entity_proto_rawDescGZIP() []byte {
 	return file_proto_eqstruct_entity_proto_rawDescData
 }
 
-var file_proto_eqstruct_entity_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_eqstruct_entity_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_proto_eqstruct_entity_proto_goTypes = []interface{}{
-	(*MoveDoor)(nil),   // 0: eqstruct.MoveDoor
-	(*Action)(nil),     // 1: eqstruct.Action
-	(*BeginCast)(nil),  // 2: eqstruct.BeginCast
-	(*Damage)(nil),     // 3: eqstruct.Damage
-	(*HPUpdate)(nil),   // 4: eqstruct.HPUpdate
-	(*WearChange)(nil), // 5: eqstruct.WearChange
-	(*TintStruct)(nil), // 6: eqstruct.TintStruct
+	(*MoveDoor)(nil),      // 0: eqstruct.MoveDoor
+	(*Action)(nil),        // 1: eqstruct.Action
+	(*BeginCast)(nil),     // 2: eqstruct.BeginCast
+	(*Damage)(nil),        // 3: eqstruct.Damage
+	(*HPUpdate)(nil),      // 4: eqstruct.HPUpdate
+	(*WearChange)(nil),    // 5: eqstruct.WearChange
+	(*TintStruct)(nil),    // 6: eqstruct.TintStruct
+	(*Death)(nil),         // 7: eqstruct.Death
+	(*LFG)(nil),           // 8: eqstruct.LFG
+	(*LFGAppearance)(nil), // 9: eqstruct.LFGAppearance
 }
 var file_proto_eqstruct_entity_proto_depIdxs = []int32{
 	6, // 0: eqstruct.WearChange.color:type_name -> eqstruct.TintStruct
@@ -769,6 +1017,42 @@ func file_proto_eqstruct_entity_proto_init() {
 				return nil
 			}
 		}
+		file_proto_eqstruct_entity_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Death); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_entity_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LFG); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_entity_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LFGAppearance); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -776,7 +1060,7 @@ func file_proto_eqstruct_entity_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_eqstruct_entity_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

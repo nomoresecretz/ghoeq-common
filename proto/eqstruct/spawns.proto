@@ -100,3 +100,22 @@ message Object {
 message DeleteSpawn {
     uint32 spawn_id = 1;
 }
+
+message SpawnDoor {
+    string name = 1;
+    float y = 2;
+    float x = 3;
+    float z = 4;
+    float heading = 5;
+    uint32 incline = 6;
+    uint32 size = 7;
+    uint32 door_id = 8;
+    uint32 open_type = 9;
+    uint32 open_flag = 10;
+    uint32 inverted = 11;
+    uint32 parameter = 12;
+}
+
+message SpawnDoors {
+    repeated SpawnDoor doors = 1;
+}

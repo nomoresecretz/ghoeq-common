@@ -14,14 +14,14 @@ type DeleteSpawn struct {
 func (p *DeleteSpawn) EQType() EQType { return EQT_DeleteSpawn }
 func (p *DeleteSpawn) bp() *int       { return &p.bPointer }
 
-func (p *DeleteSpawn) Unmarshal(b []byte) error {
+func (p *DeleteSpawn) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *DeleteSpawn) Proto() *eqstruct.DeleteSpawn {

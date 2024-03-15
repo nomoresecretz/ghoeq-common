@@ -14,14 +14,14 @@ type ExpUpdate struct {
 func (p *ExpUpdate) EQType() EQType { return EQT_ExpUpdate }
 func (p *ExpUpdate) bp() *int       { return &p.bPointer }
 
-func (p *ExpUpdate) Unmarshal(b []byte) error {
+func (p *ExpUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.Exp, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ExpUpdate) Proto() *eqstruct.ExpUpdate {

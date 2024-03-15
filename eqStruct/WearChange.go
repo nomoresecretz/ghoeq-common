@@ -17,28 +17,30 @@ type WearChange struct {
 func (p *WearChange) EQType() EQType { return EQT_WearChange }
 func (p *WearChange) bp() *int       { return &p.bPointer }
 
-func (p *WearChange) Unmarshal(b []byte) error {
+func (p *WearChange) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.WearSlotID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.bPointer = 4
 	if err := EQReadLittleEndian(b, p, &p.Material, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.Color = &TintStruct{}
-	if err := p.Color.Unmarshal(b[p.bPointer:]); err != nil {
-		return err
+	bp, err := p.Color.Unmarshal(b[p.bPointer:])
+	if err != nil {
+		return 0, err
 	}
+	p.bPointer += bp
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *WearChange) Proto() *eqstruct.WearChange {

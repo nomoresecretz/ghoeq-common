@@ -16,22 +16,22 @@ type SpawnAppearance struct {
 func (p *SpawnAppearance) EQType() EQType { return EQT_SpawnAppearance }
 func (p *SpawnAppearance) bp() *int       { return &p.bPointer }
 
-func (p *SpawnAppearance) Unmarshal(b []byte) error {
+func (p *SpawnAppearance) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Type, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.Parameter, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *SpawnAppearance) Proto() *eqstruct.SpawnAppearance {

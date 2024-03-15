@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
+
+package eqstruct;
+
+message GuildList {
+    repeated GuildEntry guilds = 1;
+}
+
+message GuildEntry {
+    uint32 guild_id = 1;
+    string name = 2;
+    uint32 exists = 3;
+}
+
+message GuildUpdate {
+    uint32 guild_id = 1;
+    GuildEntry guild = 2;
+}

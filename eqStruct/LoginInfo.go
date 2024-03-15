@@ -17,23 +17,23 @@ type LoginInfo struct {
 func (p *LoginInfo) EQType() EQType { return EQT_LoginInfo }
 func (p *LoginInfo) bp() *int       { return &p.bPointer }
 
-func (p *LoginInfo) Unmarshal(b []byte) error {
+func (p *LoginInfo) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.Account, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQRead(b, p, &p.Password, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	p.bPointer = 192
 	if err := EQRead(b, p, &p.Zoning, 4); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *LoginInfo) Proto() *eqstruct.LoginInfo {

@@ -15,18 +15,18 @@ type ManaUpdate struct {
 func (p *ManaUpdate) EQType() EQType { return EQT_ManaUpdate }
 func (p *ManaUpdate) bp() *int       { return &p.bPointer }
 
-func (p *ManaUpdate) Unmarshal(b []byte) error {
+func (p *ManaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
 	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
-		return err
+		return 0, err
 	}
 
 	if err := EQReadLittleEndian(b, p, &p.ManaCurr, 0); err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return p.bPointer, nil
 }
 
 func (p *ManaUpdate) Proto() *eqstruct.ManaUpdate {

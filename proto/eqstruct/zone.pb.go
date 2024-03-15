@@ -720,6 +720,274 @@ func (x *ZoneEntryClient) GetCharName() string {
 	return ""
 }
 
+type ZonePoints struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ZonePoints []*ZonePoint `protobuf:"bytes,1,rep,name=zone_points,json=zonePoints,proto3" json:"zone_points,omitempty"`
+}
+
+func (x *ZonePoints) Reset() {
+	*x = ZonePoints{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_zone_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ZonePoints) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ZonePoints) ProtoMessage() {}
+
+func (x *ZonePoints) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_zone_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ZonePoints.ProtoReflect.Descriptor instead.
+func (*ZonePoints) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_zone_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ZonePoints) GetZonePoints() []*ZonePoint {
+	if x != nil {
+		return x.ZonePoints
+	}
+	return nil
+}
+
+type ZonePoint struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Iterator uint32  `protobuf:"varint,1,opt,name=iterator,proto3" json:"iterator,omitempty"`
+	X        float32 `protobuf:"fixed32,2,opt,name=x,proto3" json:"x,omitempty"`
+	Y        float32 `protobuf:"fixed32,3,opt,name=y,proto3" json:"y,omitempty"`
+	Z        float32 `protobuf:"fixed32,4,opt,name=z,proto3" json:"z,omitempty"`
+	Heading  float32 `protobuf:"fixed32,5,opt,name=heading,proto3" json:"heading,omitempty"`
+	ZoneId   uint32  `protobuf:"varint,6,opt,name=zone_id,json=zoneId,proto3" json:"zone_id,omitempty"`
+}
+
+func (x *ZonePoint) Reset() {
+	*x = ZonePoint{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_zone_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ZonePoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ZonePoint) ProtoMessage() {}
+
+func (x *ZonePoint) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_zone_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ZonePoint.ProtoReflect.Descriptor instead.
+func (*ZonePoint) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_zone_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ZonePoint) GetIterator() uint32 {
+	if x != nil {
+		return x.Iterator
+	}
+	return 0
+}
+
+func (x *ZonePoint) GetX() float32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *ZonePoint) GetY() float32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+func (x *ZonePoint) GetZ() float32 {
+	if x != nil {
+		return x.Z
+	}
+	return 0
+}
+
+func (x *ZonePoint) GetHeading() float32 {
+	if x != nil {
+		return x.Heading
+	}
+	return 0
+}
+
+func (x *ZonePoint) GetZoneId() uint32 {
+	if x != nil {
+		return x.ZoneId
+	}
+	return 0
+}
+
+type Weather struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Type      uint32 `protobuf:"varint,1,opt,name=type,proto3" json:"type,omitempty"`
+	Intensity uint32 `protobuf:"varint,2,opt,name=intensity,proto3" json:"intensity,omitempty"`
+}
+
+func (x *Weather) Reset() {
+	*x = Weather{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_zone_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Weather) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Weather) ProtoMessage() {}
+
+func (x *Weather) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_zone_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Weather.ProtoReflect.Descriptor instead.
+func (*Weather) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_zone_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Weather) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+func (x *Weather) GetIntensity() uint32 {
+	if x != nil {
+		return x.Intensity
+	}
+	return 0
+}
+
+type Time struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Hour   uint32 `protobuf:"varint,1,opt,name=hour,proto3" json:"hour,omitempty"`
+	Minute uint32 `protobuf:"varint,2,opt,name=minute,proto3" json:"minute,omitempty"`
+	Day    uint32 `protobuf:"varint,3,opt,name=day,proto3" json:"day,omitempty"`
+	Month  uint32 `protobuf:"varint,4,opt,name=month,proto3" json:"month,omitempty"`
+	Year   uint32 `protobuf:"varint,5,opt,name=year,proto3" json:"year,omitempty"`
+}
+
+func (x *Time) Reset() {
+	*x = Time{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_eqstruct_zone_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Time) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Time) ProtoMessage() {}
+
+func (x *Time) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eqstruct_zone_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Time.ProtoReflect.Descriptor instead.
+func (*Time) Descriptor() ([]byte, []int) {
+	return file_proto_eqstruct_zone_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Time) GetHour() uint32 {
+	if x != nil {
+		return x.Hour
+	}
+	return 0
+}
+
+func (x *Time) GetMinute() uint32 {
+	if x != nil {
+		return x.Minute
+	}
+	return 0
+}
+
+func (x *Time) GetDay() uint32 {
+	if x != nil {
+		return x.Day
+	}
+	return 0
+}
+
+func (x *Time) GetMonth() uint32 {
+	if x != nil {
+		return x.Month
+	}
+	return 0
+}
+
+func (x *Time) GetYear() uint32 {
+	if x != nil {
+		return x.Year
+	}
+	return 0
+}
+
 var File_proto_eqstruct_zone_proto protoreflect.FileDescriptor
 
 var file_proto_eqstruct_zone_proto_rawDesc = []byte{
@@ -858,11 +1126,34 @@ var file_proto_eqstruct_zone_proto_rawDesc = []byte{
 	0x6e, 0x6f, 0x77, 0x6e, 0x5f, 0x30, 0x30, 0x30, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a,
 	0x75, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x30, 0x30, 0x30, 0x12, 0x1b, 0x0a, 0x09, 0x63, 0x68,
 	0x61, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x63,
-	0x68, 0x61, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x42, 0x36, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6f, 0x6d, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x63, 0x72,
-	0x65, 0x74, 0x7a, 0x2f, 0x67, 0x68, 0x6f, 0x65, 0x71, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
-	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x71, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x68, 0x61, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0x42, 0x0a, 0x0a, 0x5a, 0x6f, 0x6e, 0x65, 0x50,
+	0x6f, 0x69, 0x6e, 0x74, 0x73, 0x12, 0x34, 0x0a, 0x0b, 0x7a, 0x6f, 0x6e, 0x65, 0x5f, 0x70, 0x6f,
+	0x69, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x65, 0x71, 0x73,
+	0x74, 0x72, 0x75, 0x63, 0x74, 0x2e, 0x5a, 0x6f, 0x6e, 0x65, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52,
+	0x0a, 0x7a, 0x6f, 0x6e, 0x65, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x22, 0x84, 0x01, 0x0a, 0x09,
+	0x5a, 0x6f, 0x6e, 0x65, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x69, 0x74, 0x65,
+	0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x69, 0x74, 0x65,
+	0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0c, 0x0a, 0x01, 0x78, 0x18, 0x02, 0x20, 0x01, 0x28, 0x02,
+	0x52, 0x01, 0x78, 0x12, 0x0c, 0x0a, 0x01, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01,
+	0x79, 0x12, 0x0c, 0x0a, 0x01, 0x7a, 0x18, 0x04, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x7a, 0x12,
+	0x18, 0x0a, 0x07, 0x68, 0x65, 0x61, 0x64, 0x69, 0x6e, 0x67, 0x18, 0x05, 0x20, 0x01, 0x28, 0x02,
+	0x52, 0x07, 0x68, 0x65, 0x61, 0x64, 0x69, 0x6e, 0x67, 0x12, 0x17, 0x0a, 0x07, 0x7a, 0x6f, 0x6e,
+	0x65, 0x5f, 0x69, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x7a, 0x6f, 0x6e, 0x65,
+	0x49, 0x64, 0x22, 0x3b, 0x0a, 0x07, 0x57, 0x65, 0x61, 0x74, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a,
+	0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x74, 0x79, 0x70,
+	0x65, 0x12, 0x1c, 0x0a, 0x09, 0x69, 0x6e, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x74, 0x79, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x69, 0x6e, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x74, 0x79, 0x22,
+	0x6e, 0x0a, 0x04, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x6f, 0x75, 0x72, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x68, 0x6f, 0x75, 0x72, 0x12, 0x16, 0x0a, 0x06, 0x6d,
+	0x69, 0x6e, 0x75, 0x74, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x6d, 0x69, 0x6e,
+	0x75, 0x74, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x64, 0x61, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x03, 0x64, 0x61, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x12, 0x12, 0x0a, 0x04, 0x79,
+	0x65, 0x61, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x79, 0x65, 0x61, 0x72, 0x42,
+	0x36, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6f,
+	0x6d, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x7a, 0x2f, 0x67, 0x68, 0x6f, 0x65,
+	0x71, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65,
+	0x71, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -877,19 +1168,24 @@ func file_proto_eqstruct_zone_proto_rawDescGZIP() []byte {
 	return file_proto_eqstruct_zone_proto_rawDescData
 }
 
-var file_proto_eqstruct_zone_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_eqstruct_zone_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_proto_eqstruct_zone_proto_goTypes = []interface{}{
 	(*ZoneServerInfo)(nil),  // 0: eqstruct.ZoneServerInfo
 	(*NewZone)(nil),         // 1: eqstruct.NewZone
 	(*ZoneEntryServer)(nil), // 2: eqstruct.ZoneEntryServer
 	(*ZoneEntryClient)(nil), // 3: eqstruct.ZoneEntryClient
+	(*ZonePoints)(nil),      // 4: eqstruct.ZonePoints
+	(*ZonePoint)(nil),       // 5: eqstruct.ZonePoint
+	(*Weather)(nil),         // 6: eqstruct.Weather
+	(*Time)(nil),            // 7: eqstruct.Time
 }
 var file_proto_eqstruct_zone_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	5, // 0: eqstruct.ZonePoints.zone_points:type_name -> eqstruct.ZonePoint
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_proto_eqstruct_zone_proto_init() }
@@ -946,6 +1242,54 @@ func file_proto_eqstruct_zone_proto_init() {
 				return nil
 			}
 		}
+		file_proto_eqstruct_zone_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ZonePoints); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_zone_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ZonePoint); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_zone_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Weather); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_eqstruct_zone_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Time); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -953,7 +1297,7 @@ func file_proto_eqstruct_zone_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_eqstruct_zone_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
