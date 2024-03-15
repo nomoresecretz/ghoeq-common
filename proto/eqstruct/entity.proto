@@ -45,3 +45,17 @@ message HPUpdate {
     int32 hp_cur = 2;
     int32 hp_max = 3;
 }
+
+message WearChange {
+    uint32 spawn_id = 1;
+    uint32 wear_slot_id = 2;
+    uint32 material = 3;
+    TintStruct color = 4;
+}
+
+message TintStruct {
+    uint32 blue = 1;
+    uint32 green = 2;
+    uint32 red = 3;
+    uint32 use = 4;
+}

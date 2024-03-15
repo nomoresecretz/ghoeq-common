@@ -21,7 +21,7 @@ const (
 	EQT_PlayEverquestResponse
 	EQT_ZoneServerInfo
 	EQT_PlayRequest
-	EQT_ServerZoneEntry
+	EQT_ZoneEntryServer
 	EQT_LogServer
 	EQT_EnterWorld
 	EQT_LoginInfo
@@ -43,6 +43,12 @@ const (
 	EQT_Consider
 	EQT_Target
 	EQT_HPUpdate
+	EQT_Object
+	EQT_DeleteSpawn
+	EQT_ZoneEntryClient
+	EQT_ServerMOTD
+	EQT_WearChange
+	EQT_TintStruct
 )
 
 var typeRegistry = map[EQType]any{
@@ -50,7 +56,7 @@ var typeRegistry = map[EQType]any{
 	EQT_PlayEverquestResponse: (*PlayRequest)(nil), // TODO: verify
 	EQT_ZoneServerInfo:        (*ZoneServerInfo)(nil),
 	EQT_PlayRequest:           (*PlayRequest)(nil),
-	EQT_ServerZoneEntry:       (*ServerZoneEntry)(nil),
+	EQT_ZoneEntryServer:       (*ZoneEntryServer)(nil),
 	EQT_LogServer:             (*LogServer)(nil),
 	EQT_EnterWorld:            (*EnterWorld)(nil),
 	EQT_LoginInfo:             (*LoginInfo)(nil),
@@ -72,6 +78,12 @@ var typeRegistry = map[EQType]any{
 	EQT_Consider:              (*Consider)(nil),
 	EQT_Target:                (*Target)(nil),
 	EQT_HPUpdate:              (*HPUpdate)(nil),
+	EQT_Object:                (*Object)(nil),
+	EQT_DeleteSpawn:           (*DeleteSpawn)(nil),
+	EQT_ZoneEntryClient:       (*ZoneEntryClient)(nil),
+	EQT_ServerMOTD:            (*ServerMOTD)(nil),
+	EQT_WearChange:            (*WearChange)(nil),
+	EQT_TintStruct:            (*TintStruct)(nil),
 }
 
 func (t *EQType) TypeOf() reflect.Type {

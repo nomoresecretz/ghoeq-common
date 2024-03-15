@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kr/pretty"
+	"github.com/google/go-cmp/cmp"
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
@@ -18,6 +18,10 @@ func TestStructs(t *testing.T) {
 	paths, err := filepath.Glob(filepath.Join("testdata", "**", "*.input"))
 	if err != nil {
 		t.Fatal(err)
+	}
+	mo := prototext.MarshalOptions{
+		Multiline: true,
+		Indent:    "",
 	}
 
 	for _, path := range paths {
@@ -55,10 +59,7 @@ func TestStructs(t *testing.T) {
 
 			genericUnmarshal(t, eqS, out)
 
-			got, err := prototext.Marshal(eqS.ProtoMess())
-			if err != nil {
-				t.Fatalf("failed to marshal text proto: %s", err)
-			}
+			got := mo.Format(eqS.ProtoMess())
 
 			// Each input file is expected to have a "golden output" file, with the
 			// same path except the .input extension is replaced by .golden
@@ -68,9 +69,9 @@ func TestStructs(t *testing.T) {
 				t.Fatal("error reading golden file:", err)
 			}
 
-			
-
-			if diff := pretty.Diff(want, got); len(diff) != 0 {
+			wantStr := string(want[:])
+			wantStr = strings.Replace(wantStr, "\r", "", -1)
+			if diff := cmp.Diff(wantStr, got); diff != "" {
 				t.Errorf("test diff: %s", diff)
 			}
 		})

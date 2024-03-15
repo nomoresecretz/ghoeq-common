@@ -5,5 +5,10 @@ option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
 package eqstruct;
 
 message EnterWorld {
-    string Name = 1;
+    string name = 1;
+}
+
+message ServerMOTD {
+    string name = 1;
+    string message = 2;
 }

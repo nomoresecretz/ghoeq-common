@@ -38,7 +38,7 @@ type BackendServerClient interface {
 	ListSession(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListSessionResponse, error)
 	ListStreams(ctx context.Context, in *ListStreamRequest, opts ...grpc.CallOption) (*ListStreamsResponse, error)
 	ListClients(ctx context.Context, in *ListClientRequest, opts ...grpc.CallOption) (*ListClientsResponse, error)
-	ModifySession(ctx context.Context, in *ModifySessionRequest, opts ...grpc.CallOption) (*SessionResponse, error)
+	ModifySession(ctx context.Context, in *ModifySessionRequest, opts ...grpc.CallOption) (*ModifySessionResponse, error)
 	AttachSessionRaw(ctx context.Context, in *AttachSessionRequest, opts ...grpc.CallOption) (BackendServer_AttachSessionRawClient, error)
 	AttachClient(ctx context.Context, in *AttachClientRequest, opts ...grpc.CallOption) (BackendServer_AttachClientClient, error)
 	AttachStreamRaw(ctx context.Context, in *AttachStreamRequest, opts ...grpc.CallOption) (BackendServer_AttachStreamRawClient, error)
@@ -89,8 +89,8 @@ func (c *backendServerClient) ListClients(ctx context.Context, in *ListClientReq
 	return out, nil
 }
 
-func (c *backendServerClient) ModifySession(ctx context.Context, in *ModifySessionRequest, opts ...grpc.CallOption) (*SessionResponse, error) {
-	out := new(SessionResponse)
+func (c *backendServerClient) ModifySession(ctx context.Context, in *ModifySessionRequest, opts ...grpc.CallOption) (*ModifySessionResponse, error) {
+	out := new(ModifySessionResponse)
 	err := c.cc.Invoke(ctx, BackendServer_ModifySession_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -234,7 +234,7 @@ type BackendServerServer interface {
 	ListSession(context.Context, *ListRequest) (*ListSessionResponse, error)
 	ListStreams(context.Context, *ListStreamRequest) (*ListStreamsResponse, error)
 	ListClients(context.Context, *ListClientRequest) (*ListClientsResponse, error)
-	ModifySession(context.Context, *ModifySessionRequest) (*SessionResponse, error)
+	ModifySession(context.Context, *ModifySessionRequest) (*ModifySessionResponse, error)
 	AttachSessionRaw(*AttachSessionRequest, BackendServer_AttachSessionRawServer) error
 	AttachClient(*AttachClientRequest, BackendServer_AttachClientServer) error
 	AttachStreamRaw(*AttachStreamRequest, BackendServer_AttachStreamRawServer) error
@@ -258,7 +258,7 @@ func (UnimplementedBackendServerServer) ListStreams(context.Context, *ListStream
 func (UnimplementedBackendServerServer) ListClients(context.Context, *ListClientRequest) (*ListClientsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListClients not implemented")
 }
-func (UnimplementedBackendServerServer) ModifySession(context.Context, *ModifySessionRequest) (*SessionResponse, error) {
+func (UnimplementedBackendServerServer) ModifySession(context.Context, *ModifySessionRequest) (*ModifySessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ModifySession not implemented")
 }
 func (UnimplementedBackendServerServer) AttachSessionRaw(*AttachSessionRequest, BackendServer_AttachSessionRawServer) error {

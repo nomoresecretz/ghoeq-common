@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-const _EQTypeName = "EQT_UnknownEQT_PlayerProfileEQT_PlayEverquestResponseEQT_ZoneServerInfoEQT_PlayRequestEQT_ServerZoneEntryEQT_LogServerEQT_EnterWorldEQT_LoginInfoEQT_LoginAcceptedEQT_SpawnPositionUpdateEQT_SpawnPositionUpdatesEQT_ZoneSpawnsEQT_ZoneSpawnEQT_ClientUpdateEQT_ManaUpdateEQT_NewZoneEQT_StaminaUpdateEQT_MoveDoorEQT_SpawnAppearanceEQT_ActionEQT_BeginCastEQT_DamageEQT_ExpUpdateEQT_ConsiderEQT_TargetEQT_HPUpdate"
+const _EQTypeName = "EQT_UnknownEQT_PlayerProfileEQT_PlayEverquestResponseEQT_ZoneServerInfoEQT_PlayRequestEQT_ZoneEntryServerEQT_LogServerEQT_EnterWorldEQT_LoginInfoEQT_LoginAcceptedEQT_SpawnPositionUpdateEQT_SpawnPositionUpdatesEQT_ZoneSpawnsEQT_ZoneSpawnEQT_ClientUpdateEQT_ManaUpdateEQT_NewZoneEQT_StaminaUpdateEQT_MoveDoorEQT_SpawnAppearanceEQT_ActionEQT_BeginCastEQT_DamageEQT_ExpUpdateEQT_ConsiderEQT_TargetEQT_HPUpdateEQT_ObjectEQT_DeleteSpawnEQT_ZoneEntryClientEQT_ServerMOTDEQT_WearChangeEQT_TintStruct"
 
-var _EQTypeIndex = [...]uint16{0, 11, 28, 53, 71, 86, 105, 118, 132, 145, 162, 185, 209, 223, 236, 252, 266, 277, 294, 306, 325, 335, 348, 358, 371, 383, 393, 405}
+var _EQTypeIndex = [...]uint16{0, 11, 28, 53, 71, 86, 105, 118, 132, 145, 162, 185, 209, 223, 236, 252, 266, 277, 294, 306, 325, 335, 348, 358, 371, 383, 393, 405, 415, 430, 449, 463, 477, 491}
 
 func (i EQType) String() string {
 	if i >= EQType(len(_EQTypeIndex)-1) {
@@ -17,7 +17,7 @@ func (i EQType) String() string {
 	return _EQTypeName[_EQTypeIndex[i]:_EQTypeIndex[i+1]]
 }
 
-var _EQTypeValues = []EQType{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}
+var _EQTypeValues = []EQType{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32}
 
 var _EQTypeNameToValueMap = map[string]EQType{
 	_EQTypeName[0:11]:    0,
@@ -47,6 +47,12 @@ var _EQTypeNameToValueMap = map[string]EQType{
 	_EQTypeName[371:383]: 24,
 	_EQTypeName[383:393]: 25,
 	_EQTypeName[393:405]: 26,
+	_EQTypeName[405:415]: 27,
+	_EQTypeName[415:430]: 28,
+	_EQTypeName[430:449]: 29,
+	_EQTypeName[449:463]: 30,
+	_EQTypeName[463:477]: 31,
+	_EQTypeName[477:491]: 32,
 }
 
 // EQTypeString retrieves an enum value from the enum constants string name.

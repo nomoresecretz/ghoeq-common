@@ -80,3 +80,23 @@ message SpawnAppearance {
     uint32 type = 2;
     uint32 parameter = 3;
 }
+
+message Object {
+    uint32 prev = 1;
+    uint32 next = 2;
+    uint32 unknown_008 = 3;
+    uint32 drop_id = 4;
+    uint32 zone_id = 5;
+    uint32 zone_instance = 6;
+    float heading = 7;
+    float z = 8;
+    float x = 9;
+    float y = 10;
+    string name = 11;
+    uint32 object_type = 12;
+    uint32 spawn_id = 13;
+}
+
+message DeleteSpawn {
+    uint32 spawn_id = 1;
+}

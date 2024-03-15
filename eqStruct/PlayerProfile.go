@@ -111,11 +111,6 @@ type SpellBuff struct {
 	Counters     uint16
 }
 
-type TintStruct struct {
-	Blue, Green, Red uint8
-	Use              uint8
-}
-
 func (p *PlayerProfile) EQType() EQType { return EQT_PlayerProfile }
 func (p *PlayerProfile) bp() *int       { return &p.bPointer }
 
@@ -225,6 +220,7 @@ func (p *PlayerProfile) Unmarshal(b []byte) error {
 		}
 	}
 
+	// TODO: refactor as unmarshal
 	p.EquipColor = make([]TintStruct, 9)
 	for i := range p.EquipType {
 		if err := EQRead(b, p, &p.EquipColor[i].Blue, 0); err != nil {

@@ -5,7 +5,7 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-type ServerZoneEntry struct {
+type ZoneEntryServer struct {
 	Checksum  []byte  // 000 Len4
 	Type      uint8   // 004
 	Name      string  // 005 MAX64
@@ -30,10 +30,10 @@ type ServerZoneEntry struct {
 	bPointer int
 }
 
-func (p *ServerZoneEntry) EQType() EQType { return EQT_ServerZoneEntry }
-func (p *ServerZoneEntry) bp() *int       { return &p.bPointer }
+func (p *ZoneEntryServer) EQType() EQType { return EQT_ZoneEntryServer }
+func (p *ZoneEntryServer) bp() *int       { return &p.bPointer }
 
-func (p *ServerZoneEntry) Unmarshal(b []byte) error {
+func (p *ZoneEntryServer) Unmarshal(b []byte) error {
 	p.bPointer = 0
 
 	if err := EQRead(b, p, &p.Checksum, 4); err != nil {
@@ -109,8 +109,8 @@ func (p *ServerZoneEntry) Unmarshal(b []byte) error {
 	return nil
 }
 
-func (p *ServerZoneEntry) Proto() *eqstruct.ZoneEntry {
-	return &eqstruct.ZoneEntry{
+func (p *ZoneEntryServer) Proto() *eqstruct.ZoneEntryServer {
+	return &eqstruct.ZoneEntryServer{
 		Checksum:   p.Checksum,
 		Type:       uint32(p.Type),
 		Name:       p.Name,
@@ -134,6 +134,38 @@ func (p *ServerZoneEntry) Proto() *eqstruct.ZoneEntry {
 	}
 }
 
-func (p *ServerZoneEntry) ProtoMess() proto.Message {
+func (p *ZoneEntryServer) ProtoMess() proto.Message {
+	return p.Proto()
+}
+
+type ZoneEntryClient struct {
+	Unknown000 uint32
+	CharName   string
+
+	bPointer int
+}
+
+func (p *ZoneEntryClient) EQType() EQType { return EQT_ZoneEntryClient }
+func (p *ZoneEntryClient) bp() *int       { return &p.bPointer }
+
+func (p *ZoneEntryClient) Unmarshal(b []byte) error {
+	p.bPointer = 0
+
+	if err := EQRead(b, p, &p.Unknown000, 0); err != nil {
+		return err
+	}
+
+	if err := EQRead(b, p, &p.CharName, 64); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (p *ZoneEntryClient) Proto() *eqstruct.ZoneEntryClient {
+	return &eqstruct.ZoneEntryClient{}
+}
+
+func (p *ZoneEntryClient) ProtoMess() proto.Message {
 	return p.Proto()
 }

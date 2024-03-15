@@ -56,7 +56,7 @@ message NewZone {
     uint32 script_player_entering = 44;
 }
 
-message ZoneEntry {
+message ZoneEntryServer {
     uint32 type = 1;
     string name = 2;
     uint32 zone_id = 3;
@@ -78,4 +78,9 @@ message ZoneEntry {
 
     bytes checksum = 19;
     bytes unknown_70 = 20;
+}
+
+message ZoneEntryClient {
+    uint32 unknown_000 = 1;
+    string char_name = 2;
 }

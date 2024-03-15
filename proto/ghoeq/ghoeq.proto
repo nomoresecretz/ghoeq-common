@@ -11,7 +11,7 @@ service BackendServer {
     rpc ListSession (ListRequest) returns (ListSessionResponse) {}
     rpc ListStreams (ListStreamRequest) returns (ListStreamsResponse) {}
     rpc ListClients (ListClientRequest) returns (ListClientsResponse) {}
-    rpc ModifySession (ModifySessionRequest) returns (SessionResponse) {}
+    rpc ModifySession (ModifySessionRequest) returns (ModifySessionResponse) {}
     rpc AttachSessionRaw(AttachSessionRequest) returns (stream APPacket) {}
     rpc AttachClient(AttachClientRequest) returns (stream ClientUpdate) {}
     rpc AttachStreamRaw(AttachStreamRequest) returns (stream APPacket) {} // Simply a stream of decrypted / decompressed opcode + data packets
@@ -54,7 +54,14 @@ message ListClientsResponse {
     repeated GameStream clients = 1;
 }
 
-message SessionResponse {}
+message ModifySessionResponse {
+    repeated SessionResponse responses = 1;
+}
+
+message SessionResponse {
+    string id = 1;
+    State state = 2;
+}
 
 message AttachStreamRequest {
     string id = 1; // Start pulling a specific stream, or 0 for first avaliable if one or none.

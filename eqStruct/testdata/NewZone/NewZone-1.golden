@@ -1,1 +1,16 @@
-"name:  \"zzzz\"\nname_short:  \"nektulos\"\nname_long:  \"Nektulos Forest\"\ntype:  255\nfog_red:  80\nfog_green:  90\nfog_blue:  70\ngravity:  205\ntime_type:  1\nrain_chance:  10\nrain_duration:  2\nspecial_dates:  \"\\x00\\x00\\x00\\x00\"\nspecial_codes:  \"\\x00\\x00\\x00\\x00\"\nwater_music:  4\nmusic_normal_day:  2\ngraveyard_time:  256\n"
+name: "zzzz"
+name_short: "nektulos"
+name_long: "Nektulos Forest"
+type: 255
+fog_red: 80
+fog_green: 90
+fog_blue: 70
+gravity: 205
+time_type: 1
+rain_chance: 10
+rain_duration: 2
+special_dates: "\x00\x00\x00\x00"
+special_codes: "\x00\x00\x00\x00"
+water_music: 4
+music_normal_day: 2
+graveyard_time: 256
