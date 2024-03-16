@@ -5,10 +5,10 @@ option go_package = "github.com/nomoresecretz/ghoeq-common/proto/eqstruct";
 package eqstruct;
 
 message ChannelMessage {
-    string target_name = 1;
-    string sender = 2;
+    bytes target_name = 1;
+    bytes sender = 2;
     uint32 language = 3;
     uint32 channel_number = 4;
     uint32 language_skill = 5;
-    string message = 6;
+    bytes message = 6;
 }

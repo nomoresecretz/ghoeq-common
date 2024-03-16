@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-const _EQTypeName = "EQT_UnknownEQT_PlayerProfileEQT_PlayEverquestResponseEQT_ZoneServerInfoEQT_PlayRequestEQT_ZoneEntryServerEQT_LogServerEQT_EnterWorldEQT_LoginInfoEQT_LoginAcceptedEQT_SpawnPositionUpdateEQT_SpawnPositionUpdatesEQT_ZoneSpawnsEQT_ZoneSpawnEQT_ClientUpdateEQT_ManaUpdateEQT_NewZoneEQT_StaminaUpdateEQT_MoveDoorEQT_SpawnAppearanceEQT_ActionEQT_BeginCastEQT_DamageEQT_ExpUpdateEQT_ConsiderEQT_TargetEQT_HPUpdateEQT_ObjectEQT_DeleteSpawnEQT_ZoneEntryClientEQT_ServerMOTDEQT_WearChangeEQT_TintStructEQT_DeathEQT_RaidGeneralEQT_RaidAddMemberEQT_RaidCreateEQT_WorldApproveEQT_GuildsListEQT_GuildEntryEQT_GuildUpdateEQT_ZonePointsEQT_ZonePointEQT_LFGEQT_WeatherEQT_TimeEQT_SpawnDoorEQT_SpawnDoorsEQT_LFGAppearanceEQT_ChannelMessage"
+const _EQTypeName = "EQT_UnknownEQT_PlayerProfileEQT_PlayEverquestResponseEQT_ZoneServerInfoEQT_PlayRequestEQT_ZoneEntryServerEQT_LogServerEQT_EnterWorldEQT_LoginInfoEQT_LoginAcceptedEQT_SpawnPositionUpdateEQT_SpawnPositionUpdatesEQT_ZoneSpawnsEQT_ZoneSpawnEQT_ClientUpdateEQT_ManaUpdateEQT_NewZoneEQT_StaminaUpdateEQT_MoveDoorEQT_SpawnAppearanceEQT_ActionEQT_BeginCastEQT_DamageEQT_ExpUpdateEQT_ConsiderEQT_TargetEQT_HPUpdateEQT_ObjectEQT_DeleteSpawnEQT_ZoneEntryClientEQT_ServerMOTDEQT_WearChangeEQT_TintStructEQT_DeathEQT_RaidGeneralEQT_RaidAddMemberEQT_RaidCreateEQT_WorldApproveEQT_GuildsListEQT_GuildEntryEQT_GuildUpdateEQT_ZonePointsEQT_ZonePointEQT_LFGEQT_WeatherEQT_TimeEQT_SpawnDoorEQT_SpawnDoorsEQT_LFGAppearanceEQT_ChannelMessageEQT_ZoneChangeEQT_ZoneChangeReq"
 
-var _EQTypeIndex = [...]uint16{0, 11, 28, 53, 71, 86, 105, 118, 132, 145, 162, 185, 209, 223, 236, 252, 266, 277, 294, 306, 325, 335, 348, 358, 371, 383, 393, 405, 415, 430, 449, 463, 477, 491, 500, 515, 532, 546, 562, 576, 590, 605, 619, 632, 639, 650, 658, 671, 685, 702, 720}
+var _EQTypeIndex = [...]uint16{0, 11, 28, 53, 71, 86, 105, 118, 132, 145, 162, 185, 209, 223, 236, 252, 266, 277, 294, 306, 325, 335, 348, 358, 371, 383, 393, 405, 415, 430, 449, 463, 477, 491, 500, 515, 532, 546, 562, 576, 590, 605, 619, 632, 639, 650, 658, 671, 685, 702, 720, 734, 751}
 
 func (i EQType) String() string {
 	if i >= EQType(len(_EQTypeIndex)-1) {
@@ -17,7 +17,7 @@ func (i EQType) String() string {
 	return _EQTypeName[_EQTypeIndex[i]:_EQTypeIndex[i+1]]
 }
 
-var _EQTypeValues = []EQType{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}
+var _EQTypeValues = []EQType{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
 
 var _EQTypeNameToValueMap = map[string]EQType{
 	_EQTypeName[0:11]:    0,
@@ -70,6 +70,8 @@ var _EQTypeNameToValueMap = map[string]EQType{
 	_EQTypeName[671:685]: 47,
 	_EQTypeName[685:702]: 48,
 	_EQTypeName[702:720]: 49,
+	_EQTypeName[720:734]: 50,
+	_EQTypeName[734:751]: 51,
 }
 
 // EQTypeString retrieves an enum value from the enum constants string name.

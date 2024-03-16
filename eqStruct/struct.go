@@ -66,6 +66,8 @@ const (
 	EQT_SpawnDoors
 	EQT_LFGAppearance
 	EQT_ChannelMessage
+	EQT_ZoneChange
+	EQT_ZoneChangeReq
 )
 
 var typeRegistry = map[EQType]any{
@@ -118,6 +120,8 @@ var typeRegistry = map[EQType]any{
 	EQT_SpawnDoors:            (*SpawnDoors)(nil),
 	EQT_LFGAppearance:         (*LFGAppearance)(nil),
 	EQT_ChannelMessage:        (*ChannelMessage)(nil),
+	EQT_ZoneChange:            (*ZoneChange)(nil),
+	EQT_ZoneChangeReq:         (*ZoneChangeReq)(nil),
 }
 
 func (t *EQType) TypeOf() reflect.Type {
@@ -262,11 +266,13 @@ func EQReadFloat32(b []byte, s EQStruct, field *float32) error {
 
 func EQReadBytes(b []byte, s EQStruct, field *[]byte, maxLength int) error {
 	p := s.bp()
-	bh := make([]byte, maxLength)
-	stop := min(((len(b)-*p)-maxLength)+*p, *p+maxLength+1)
+
+	stop := min(len(b), *p+maxLength)
+	lg := stop - *p
+	bh := make([]byte, lg)
 	copy(bh, b[*p:stop])
 	*field = bh
-	*p += maxLength
+	*p += lg
 
 	return nil
 }
@@ -275,11 +281,11 @@ func EQReadString(b []byte, s EQStruct, field *string, maxLength int) error {
 	p := s.bp()
 
 	stop := min(len(b), *p+maxLength)
-	bh := make([]byte, stop)
+	lg := stop - *p
+	bh := make([]byte, lg)
 	copy(bh, b[*p:stop])
 	bh = bytes.Trim(bh, "\x00")
 	*field = string(bh)
-	lg := stop - *p
 	*p += lg
 
 	return nil

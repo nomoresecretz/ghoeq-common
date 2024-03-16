@@ -46,30 +46,34 @@ func (p *SpawnAppearance) ProtoMess() proto.Message {
 	return p.Proto()
 }
 
+//go:generate enumer -type=EQAppearanceType
+
+type EQAppearanceType uint16
+
 const (
-	AT_Die         = 0
-	AT_WhoLevel    = 1
-	AT_MaxHP       = 2
-	AT_Invis       = 3
-	AT_PVP         = 4
-	AT_Light       = 5
-	AT_Anim        = 14
-	AT_Sneak       = 15
-	AT_SpawnID     = 16
-	AT_HP          = 17
-	AT_LinkDead    = 18
-	AT_Levitate    = 19
-	AT_GM          = 20
-	AT_Anon        = 21
-	AT_GuildID     = 22
-	AT_GuildRank   = 23
-	AT_AFK         = 24
-	AT_Pet         = 25
-	AT_SummonedPC  = 27
-	AT_Split       = 28
-	AT_Size        = 29
-	AT_NPC         = 30
-	AT_NPCName     = 31
-	AT_DamageState = 44
-	AT_Trader      = 300
+	AT_Die         EQAppearanceType = 0
+	AT_WhoLevel    EQAppearanceType = 1
+	AT_MaxHP       EQAppearanceType = 2
+	AT_Invis       EQAppearanceType = 3
+	AT_PVP         EQAppearanceType = 4
+	AT_Light       EQAppearanceType = 5
+	AT_Anim        EQAppearanceType = 14
+	AT_Sneak       EQAppearanceType = 15
+	AT_SpawnID     EQAppearanceType = 16
+	AT_HP          EQAppearanceType = 17
+	AT_LinkDead    EQAppearanceType = 18
+	AT_Levitate    EQAppearanceType = 19
+	AT_GM          EQAppearanceType = 20
+	AT_Anon        EQAppearanceType = 21
+	AT_GuildID     EQAppearanceType = 22
+	AT_GuildRank   EQAppearanceType = 23
+	AT_AFK         EQAppearanceType = 24
+	AT_Pet         EQAppearanceType = 25
+	AT_SummonedPC  EQAppearanceType = 27
+	AT_Split       EQAppearanceType = 28
+	AT_Size        EQAppearanceType = 29
+	AT_NPC         EQAppearanceType = 30
+	AT_NPCName     EQAppearanceType = 31
+	AT_DamageState EQAppearanceType = 44
+	AT_Trader      EQAppearanceType = 300
 )
