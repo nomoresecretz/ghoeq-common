@@ -6,12 +6,12 @@ import (
 )
 
 type ChannelMessage struct {
-	TargetName    []byte // MAX64
-	Sender        []byte // MAX64
+	TargetName    string // MAX64
+	Sender        string // MAX64
 	Language      uint16
 	ChannelNum    uint16
 	LanguageSkill uint16
-	Message       []byte
+	Message       string
 
 	bPointer int
 }
