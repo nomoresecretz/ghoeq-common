@@ -2,7 +2,6 @@ package eqStruct
 
 import (
 	"github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
-	pb "github.com/nomoresecretz/ghoeq-common/proto/eqstruct"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -42,7 +41,7 @@ func (p *ZonePoints) Proto() *eqstruct.ZonePoints {
 		points[i] = v.Proto()
 	}
 
-	return &pb.ZonePoints{
+	return &eqstruct.ZonePoints{
 		ZonePoints: points,
 	}
 }

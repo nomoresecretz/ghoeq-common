@@ -13,7 +13,7 @@ service BackendServer {
     rpc ListClients (ListClientRequest) returns (ListClientsResponse) {}
     rpc ModifySession (ModifySessionRequest) returns (ModifySessionResponse) {}
     rpc AttachSessionRaw(AttachSessionRequest) returns (stream APPacket) {}
-    rpc AttachClientStream(AttachClientStreamRequest) returns (stream ClientUpdate) {} // Unified stream of client specific processed data.
+    rpc AttachClientStream(AttachClientStreamRequest) returns (stream ClientPacket) {} // Unified stream of client specific processed data.
     rpc AttachClient(AttachClientRequest) returns (stream ClientUpdate) {} // Feed of client streams.
     rpc AttachStreamRaw(AttachStreamRequest) returns (stream APPacket) {} // Simply a stream of decrypted / decompressed opcode + data packets
     rpc AttachStreamStruct(AttachStreamRequest) returns (stream ClientPacket) {} // Normalized proper data packets - long term plan once backend can properly deseralize

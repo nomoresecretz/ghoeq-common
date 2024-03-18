@@ -83,9 +83,3 @@ func genericUnmarshal[S EQStruct](t *testing.T, s S, b []byte) (int, error) {
 
 	return s.Unmarshal(b)
 }
-
-func genericUnmarshalText[S EQStruct](t *testing.T, s S, str string) error {
-	t.Helper()
-
-	return nil
-}

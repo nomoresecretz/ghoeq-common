@@ -5,18 +5,15 @@ import "proto/any/any.proto";
 
 package eqstruct;
 
-enum StructType {
-    ST_UNKOWN = 0;
-    ST_PlayerProfile = 1;
-    ST_SpawnPosition = 2;
-    ST_SpawnPositions = 3;
-}
-
 message DataStruct {
-    StructType type = 1;
+    reserved 1; // deprecated type
     google.protobuf.Any msg = 2;
 }
 
 message PlayRequest {
     string IP = 1;
+}
+
+message ClientUpdate {
+    string client_id = 1;
 }
