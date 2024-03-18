@@ -13,13 +13,19 @@ service BackendServer {
     rpc ListClients (ListClientRequest) returns (ListClientsResponse) {}
     rpc ModifySession (ModifySessionRequest) returns (ModifySessionResponse) {}
     rpc AttachSessionRaw(AttachSessionRequest) returns (stream APPacket) {}
-    rpc AttachClient(AttachClientRequest) returns (stream ClientUpdate) {}
+    rpc AttachClientStream(AttachClientStreamRequest) returns (stream ClientUpdate) {} // Unified stream of client specific processed data.
+    rpc AttachClient(AttachClientRequest) returns (stream ClientUpdate) {} // Feed of client streams.
     rpc AttachStreamRaw(AttachStreamRequest) returns (stream APPacket) {} // Simply a stream of decrypted / decompressed opcode + data packets
     rpc AttachStreamStruct(AttachStreamRequest) returns (stream ClientPacket) {} // Normalized proper data packets - long term plan once backend can properly deseralize
 }
 
 message AttachClientRequest {
     string client_id = 1;
+}
+
+message AttachClientStreamRequest {
+    string client_id = 1;
+    google.protobuf.Timestamp last_update = 2; // Used to mark current knowledge time.
 }
 
 message AttachSessionRequest {
