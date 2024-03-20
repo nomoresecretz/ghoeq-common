@@ -18,11 +18,11 @@ func (p *ManaUpdate) bp() *int       { return &p.bPointer }
 func (p *ManaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpawnID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ManaCurr, 0); err != nil {
+	if err := EQRead(b, p, &p.ManaCurr, 0); err != nil {
 		return 0, err
 	}
 

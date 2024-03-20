@@ -19,15 +19,15 @@ func (p *GuildEntry) bp() *int       { return &p.bPointer }
 func (p *GuildEntry) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.GuildID, 0); err != nil {
+	if err := EQRead(b, p, &p.GuildID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Name, 64); err != nil {
+	if err := EQRead(b, p, &p.Name, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Exists, 0); err != nil {
+	if err := EQRead(b, p, &p.Exists, 0); err != nil {
 		return 0, err
 	}
 

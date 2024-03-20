@@ -22,28 +22,28 @@ func (p *ChannelMessage) bp() *int       { return &p.bPointer }
 func (p *ChannelMessage) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.TargetName, 64); err != nil {
+	if err := EQRead(b, p, &p.TargetName, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Sender, 64); err != nil {
+	if err := EQRead(b, p, &p.Sender, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Language, 0); err != nil {
+	if err := EQRead(b, p, &p.Language, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ChannelNum, 0); err != nil {
+	if err := EQRead(b, p, &p.ChannelNum, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 134
-	if err := EQReadLittleEndian(b, p, &p.LanguageSkill, 0); err != nil {
+	if err := EQRead(b, p, &p.LanguageSkill, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Message, 999999999); err != nil {
+	if err := EQRead(b, p, &p.Message, 999999999); err != nil {
 		return 0, err
 	}
 

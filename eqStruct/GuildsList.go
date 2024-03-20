@@ -22,7 +22,7 @@ func (p *GuildsList) Unmarshal(b []byte) (int, error) {
 
 	p.Header = make([]uint8, 4)
 	for i := range p.Header {
-		if err := EQReadLittleEndian(b, p, &p.Header[i], 0); err != nil {
+		if err := EQRead(b, p, &p.Header[i], 0); err != nil {
 			return 0, err
 		}
 	}

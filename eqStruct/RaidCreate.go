@@ -19,15 +19,15 @@ func (p *RaidCreate) bp() *int       { return &p.bPointer }
 func (p *RaidCreate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Action, 0); err != nil {
+	if err := EQRead(b, p, &p.Action, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.LeaderName, 64); err != nil {
+	if err := EQRead(b, p, &p.LeaderName, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.LeaderID, 0); err != nil {
+	if err := EQRead(b, p, &p.LeaderID, 0); err != nil {
 		return 0, err
 	}
 

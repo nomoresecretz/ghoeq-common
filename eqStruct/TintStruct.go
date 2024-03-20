@@ -18,19 +18,19 @@ func (p *TintStruct) bp() *int       { return &p.bPointer }
 func (p *TintStruct) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Blue, 0); err != nil {
+	if err := EQRead(b, p, &p.Blue, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Green, 0); err != nil {
+	if err := EQRead(b, p, &p.Green, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Red, 0); err != nil {
+	if err := EQRead(b, p, &p.Red, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Use, 0); err != nil {
+	if err := EQRead(b, p, &p.Use, 0); err != nil {
 		return 0, err
 	}
 

@@ -24,35 +24,35 @@ func (p *Damage) bp() *int       { return &p.bPointer }
 func (p *Damage) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Target, 0); err != nil {
+	if err := EQRead(b, p, &p.Target, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Source, 0); err != nil {
+	if err := EQRead(b, p, &p.Source, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Type, 0); err != nil {
+	if err := EQRead(b, p, &p.Type, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.SpellID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpellID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Damage, 0); err != nil {
+	if err := EQRead(b, p, &p.Damage, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Force, 0); err != nil {
+	if err := EQRead(b, p, &p.Force, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Sequence, 0); err != nil {
+	if err := EQRead(b, p, &p.Sequence, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.PushupAngle, 0); err != nil {
+	if err := EQRead(b, p, &p.PushupAngle, 0); err != nil {
 		return 0, err
 	}
 

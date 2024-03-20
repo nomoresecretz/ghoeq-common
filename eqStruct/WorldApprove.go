@@ -18,11 +18,11 @@ func (p *WorldApprove) bp() *int       { return &p.bPointer }
 func (p *WorldApprove) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Response, 0); err != nil {
+	if err := EQRead(b, p, &p.Response, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Name, 0); err != nil {
+	if err := EQRead(b, p, &p.Name, 0); err != nil {
 		return 0, err
 	}
 

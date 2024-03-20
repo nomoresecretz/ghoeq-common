@@ -21,7 +21,7 @@ func (p *ZoneServerInfo) Unmarshal(b []byte) (int, error) {
 		return 0, err
 	}
 
-	if err := EQRead(b, p, &p.Port, 0); err != nil {
+	if err := EQReadBigEndian(b, p, &p.Port, 0); err != nil {
 		return 0, err
 	}
 

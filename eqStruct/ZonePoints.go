@@ -18,7 +18,7 @@ func (p *ZonePoints) bp() *int       { return &p.bPointer }
 func (p *ZonePoints) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Count, 0); err != nil {
+	if err := EQRead(b, p, &p.Count, 0); err != nil {
 		return 0, err
 	}
 
@@ -67,27 +67,27 @@ func (p *ZonePoint) bp() *int       { return &p.bPointer }
 func (p *ZonePoint) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Iterator, 0); err != nil {
+	if err := EQRead(b, p, &p.Iterator, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Y, 0); err != nil {
+	if err := EQRead(b, p, &p.Y, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.X, 0); err != nil {
+	if err := EQRead(b, p, &p.X, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Z, 0); err != nil {
+	if err := EQRead(b, p, &p.Z, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Heading, 0); err != nil {
+	if err := EQRead(b, p, &p.Heading, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ZoneID, 0); err != nil {
+	if err := EQRead(b, p, &p.ZoneID, 0); err != nil {
 		return 0, err
 	}
 

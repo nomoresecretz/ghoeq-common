@@ -24,37 +24,37 @@ func (p *Death) bp() *int       { return &p.bPointer }
 func (p *Death) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpawnID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.KillerID, 0); err != nil {
+	if err := EQRead(b, p, &p.KillerID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.CorpseID, 0); err != nil {
+	if err := EQRead(b, p, &p.CorpseID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.SpawnLevel, 0); err != nil {
+	if err := EQRead(b, p, &p.SpawnLevel, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 8
-	if err := EQReadLittleEndian(b, p, &p.SpellID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpellID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.AttackSkill, 0); err != nil {
+	if err := EQRead(b, p, &p.AttackSkill, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 12
-	if err := EQReadLittleEndian(b, p, &p.Damage, 0); err != nil {
+	if err := EQRead(b, p, &p.Damage, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.IsPC, 0); err != nil {
+	if err := EQRead(b, p, &p.IsPC, 0); err != nil {
 		return 0, err
 	}
 

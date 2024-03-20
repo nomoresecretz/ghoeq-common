@@ -17,7 +17,7 @@ func (p *ExpUpdate) bp() *int       { return &p.bPointer }
 func (p *ExpUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Exp, 0); err != nil {
+	if err := EQRead(b, p, &p.Exp, 0); err != nil {
 		return 0, err
 	}
 

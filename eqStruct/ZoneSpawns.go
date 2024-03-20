@@ -69,180 +69,180 @@ func (p *ZoneSpawn) bp() *int       { return &p.bPointer }
 
 func (p *ZoneSpawn) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 4
-	if err := EQReadLittleEndian(b, p, &p.Accel, 0); err != nil {
+	if err := EQRead(b, p, &p.Accel, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Heading, 0); err != nil {
+	if err := EQRead(b, p, &p.Heading, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.HeadingDelta, 0); err != nil {
+	if err := EQRead(b, p, &p.HeadingDelta, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Y, 0); err != nil {
+	if err := EQRead(b, p, &p.Y, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.X, 0); err != nil {
+	if err := EQRead(b, p, &p.X, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Z, 0); err != nil {
+	if err := EQRead(b, p, &p.Z, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.YDelta, 0); err != nil {
+	if err := EQRead(b, p, &p.YDelta, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ZDelta, 0); err != nil {
+	if err := EQRead(b, p, &p.ZDelta, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.XDelta, 0); err != nil {
+	if err := EQRead(b, p, &p.XDelta, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 18
-	if err := EQReadLittleEndian(b, p, &p.PetOwnerID, 0); err != nil {
+	if err := EQRead(b, p, &p.PetOwnerID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Animation, 0); err != nil {
+	if err := EQRead(b, p, &p.Animation, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 27
-	if err := EQReadLittleEndian(b, p, &p.Title, 0); err != nil {
+	if err := EQRead(b, p, &p.Title, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 32
-	if err := EQReadLittleEndian(b, p, &p.Walkspeed, 0); err != nil {
+	if err := EQRead(b, p, &p.Walkspeed, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Runspeed, 0); err != nil {
+	if err := EQRead(b, p, &p.Runspeed, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 76
-	if err := EQReadLittleEndian(b, p, &p.SpawnID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpawnID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.BodyType, 0); err != nil {
+	if err := EQRead(b, p, &p.BodyType, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.HPCur, 0); err != nil {
+	if err := EQRead(b, p, &p.HPCur, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.GuildID, 0); err != nil {
+	if err := EQRead(b, p, &p.GuildID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Race, 0); err != nil {
+	if err := EQRead(b, p, &p.Race, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.NPC, 0); err != nil {
+	if err := EQRead(b, p, &p.NPC, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ClassB, 0); err != nil {
+	if err := EQRead(b, p, &p.ClassB, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Gender, 0); err != nil {
+	if err := EQRead(b, p, &p.Gender, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Level, 0); err != nil {
+	if err := EQRead(b, p, &p.Level, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Invis, 0); err != nil {
+	if err := EQRead(b, p, &p.Invis, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Sneaking, 0); err != nil {
+	if err := EQRead(b, p, &p.Sneaking, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.PVP, 0); err != nil {
+	if err := EQRead(b, p, &p.PVP, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.AnimType, 0); err != nil {
+	if err := EQRead(b, p, &p.AnimType, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Light, 0); err != nil {
+	if err := EQRead(b, p, &p.Light, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ANON, 0); err != nil {
+	if err := EQRead(b, p, &p.ANON, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.AFK, 0); err != nil {
+	if err := EQRead(b, p, &p.AFK, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.SummonedPC, 0); err != nil {
+	if err := EQRead(b, p, &p.SummonedPC, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.LD, 0); err != nil {
+	if err := EQRead(b, p, &p.LD, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.GM, 0); err != nil {
+	if err := EQRead(b, p, &p.GM, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.FlyMode, 0); err != nil {
+	if err := EQRead(b, p, &p.FlyMode, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.BodyTexture, 0); err != nil {
+	if err := EQRead(b, p, &p.BodyTexture, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Helm, 0); err != nil {
+	if err := EQRead(b, p, &p.Helm, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Face, 0); err != nil {
+	if err := EQRead(b, p, &p.Face, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 122
-	if err := EQReadLittleEndian(b, p, &p.GuildRank, 0); err != nil {
+	if err := EQRead(b, p, &p.GuildRank, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Deity, 0); err != nil {
+	if err := EQRead(b, p, &p.Deity, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.TemporaryPet, 0); err != nil {
+	if err := EQRead(b, p, &p.TemporaryPet, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Name, 64); err != nil {
+	if err := EQRead(b, p, &p.Name, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Surname, 32); err != nil {
+	if err := EQRead(b, p, &p.Surname, 32); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Void2, 32); err != nil {
+	if err := EQRead(b, p, &p.Void2, 32); err != nil {
 		return 0, err
 	}
 

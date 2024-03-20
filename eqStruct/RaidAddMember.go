@@ -28,15 +28,15 @@ func (p *RaidAddMember) Unmarshal(b []byte) (int, error) {
 	p.bPointer += bp
 
 	p.bPointer = 136
-	if err := EQReadLittleEndian(b, p, &p.Class, 0); err != nil {
+	if err := EQRead(b, p, &p.Class, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Level, 0); err != nil {
+	if err := EQRead(b, p, &p.Level, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.GroupLeaderFlag, 0); err != nil {
+	if err := EQRead(b, p, &p.GroupLeaderFlag, 0); err != nil {
 		return 0, err
 	}
 

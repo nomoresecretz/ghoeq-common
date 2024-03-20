@@ -21,26 +21,26 @@ func (p *ZoneChange) bp() *int       { return &p.bPointer }
 func (p *ZoneChange) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.CharName, 64); err != nil {
+	if err := EQRead(b, p, &p.CharName, 64); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ZoneID, 0); err != nil {
+	if err := EQRead(b, p, &p.ZoneID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.ZoneReason, 0); err != nil {
+	if err := EQRead(b, p, &p.ZoneReason, 0); err != nil {
 		return 0, err
 	}
 
 	p.bPointer = 72
-	if err := EQReadLittleEndian(b, p, &p.Success, 0); err != nil {
+	if err := EQRead(b, p, &p.Success, 0); err != nil {
 		return 0, err
 	}
 
 	p.Error = [3]uint8{}
 	for i := range p.Error {
-		if err := EQReadLittleEndian(b, p, &p.Error[i], 0); err != nil {
+		if err := EQRead(b, p, &p.Error[i], 0); err != nil {
 			return 0, err
 		}
 	}

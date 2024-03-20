@@ -26,7 +26,7 @@ func (p *LogServer) Unmarshal(b []byte) (int, error) {
 		return 0, err
 	}
 
-	if err := EQRead(b, p, &p.Port, 32); err != nil {
+	if err := EQReadBigEndian(b, p, &p.Port, 32); err != nil {
 		return 0, err
 	}
 

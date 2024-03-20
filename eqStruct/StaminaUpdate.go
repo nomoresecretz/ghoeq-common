@@ -18,15 +18,15 @@ func (p *StaminaUpdate) bp() *int       { return &p.bPointer }
 
 func (p *StaminaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
-	if err := EQReadLittleEndian(b, p, &p.Food, 0); err != nil {
+	if err := EQRead(b, p, &p.Food, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Water, 0); err != nil {
+	if err := EQRead(b, p, &p.Water, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Fatigue, 0); err != nil {
+	if err := EQRead(b, p, &p.Fatigue, 0); err != nil {
 		return 0, err
 	}
 

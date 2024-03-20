@@ -18,11 +18,11 @@ func (p *MoveDoor) bp() *int       { return &p.bPointer }
 func (p *MoveDoor) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.DoorID, 0); err != nil {
+	if err := EQRead(b, p, &p.DoorID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Action, 0); err != nil {
+	if err := EQRead(b, p, &p.Action, 0); err != nil {
 		return 0, err
 	}
 

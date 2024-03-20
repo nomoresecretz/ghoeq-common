@@ -19,15 +19,15 @@ func (p *BeginCast) bp() *int       { return &p.bPointer }
 func (p *BeginCast) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.CasterID, 0); err != nil {
+	if err := EQRead(b, p, &p.CasterID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.SpellID, 0); err != nil {
+	if err := EQRead(b, p, &p.SpellID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.CastTime, 0); err != nil {
+	if err := EQRead(b, p, &p.CastTime, 0); err != nil {
 		return 0, err
 	}
 

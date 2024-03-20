@@ -144,12 +144,16 @@ type EQTypes interface {
 	uint8 | uint16 | uint32 | int8 | int16 | int32 | float32 | string | []byte
 }
 
-func EQReadLittleEndian[T EQTypes](b []byte, s EQStruct, field *T, size int) error {
+func EQReadBigEndian[T EQTypes](b []byte, s EQStruct, field *T, size int) error {
 	switch t := any(field).(type) {
 	case *uint32:
-		return EQReadUint32LittleEndian(b, s, t)
+		return EQReadUint32BigEndian(b, s, t)
 	case *uint16:
-		return EQReadUint16LittleEndian(b, s, t)
+		return EQReadUint16BigEndian(b, s, t)
+		/*	case *int32:
+				return EQReadInt32BigEndian(b, s, t)
+			case *int16:
+				return EQReadInt16BigEndian(b, s, t) */
 	default:
 		return EQRead(b, s, field, size)
 	}
@@ -183,7 +187,7 @@ func EQRead[T EQTypes](b []byte, s EQStruct, field *T, size int) error {
 	}
 }
 
-func EQReadUint32LittleEndian(b []byte, s EQStruct, field *uint32) error {
+func EQReadUint32(b []byte, s EQStruct, field *uint32) error {
 	p := s.bp()
 	c := b[*p:]
 	*field = binary.LittleEndian.Uint32(c)
@@ -192,7 +196,7 @@ func EQReadUint32LittleEndian(b []byte, s EQStruct, field *uint32) error {
 	return nil
 }
 
-func EQReadUint16LittleEndian(b []byte, s EQStruct, field *uint16) error {
+func EQReadUint16(b []byte, s EQStruct, field *uint16) error {
 	p := s.bp()
 	c := b[*p:]
 	*field = binary.LittleEndian.Uint16(c)
@@ -201,7 +205,7 @@ func EQReadUint16LittleEndian(b []byte, s EQStruct, field *uint16) error {
 	return nil
 }
 
-func EQReadUint32(b []byte, s EQStruct, field *uint32) error {
+func EQReadUint32BigEndian(b []byte, s EQStruct, field *uint32) error {
 	p := s.bp()
 	c := b[*p:]
 	*field = binary.BigEndian.Uint32(c)
@@ -210,7 +214,7 @@ func EQReadUint32(b []byte, s EQStruct, field *uint32) error {
 	return nil
 }
 
-func EQReadUint16(b []byte, s EQStruct, field *uint16) error {
+func EQReadUint16BigEndian(b []byte, s EQStruct, field *uint16) error {
 	p := s.bp()
 	c := b[*p:]
 	*field = binary.BigEndian.Uint16(c)

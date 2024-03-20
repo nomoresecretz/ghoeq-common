@@ -29,55 +29,55 @@ func (p *SpawnDoor) bp() *int       { return &p.bPointer }
 func (p *SpawnDoor) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Name, 16); err != nil {
+	if err := EQRead(b, p, &p.Name, 16); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Y, 0); err != nil {
+	if err := EQRead(b, p, &p.Y, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.X, 0); err != nil {
+	if err := EQRead(b, p, &p.X, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Z, 0); err != nil {
+	if err := EQRead(b, p, &p.Z, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Heading, 0); err != nil {
+	if err := EQRead(b, p, &p.Heading, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Incline, 0); err != nil {
+	if err := EQRead(b, p, &p.Incline, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Size, 0); err != nil {
+	if err := EQRead(b, p, &p.Size, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Unknown_036, 0); err != nil {
+	if err := EQRead(b, p, &p.Unknown_036, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.DoorID, 0); err != nil {
+	if err := EQRead(b, p, &p.DoorID, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.OpenType, 0); err != nil {
+	if err := EQRead(b, p, &p.OpenType, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.OpenFlag, 0); err != nil {
+	if err := EQRead(b, p, &p.OpenFlag, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Inverted, 0); err != nil {
+	if err := EQRead(b, p, &p.Inverted, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Parameter, 0); err != nil {
+	if err := EQRead(b, p, &p.Parameter, 0); err != nil {
 		return 0, err
 	}
 

@@ -21,23 +21,23 @@ func (p *Time) bp() *int       { return &p.bPointer }
 func (p *Time) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
 
-	if err := EQReadLittleEndian(b, p, &p.Hour, 0); err != nil {
+	if err := EQRead(b, p, &p.Hour, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Minute, 0); err != nil {
+	if err := EQRead(b, p, &p.Minute, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Day, 0); err != nil {
+	if err := EQRead(b, p, &p.Day, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Month, 0); err != nil {
+	if err := EQRead(b, p, &p.Month, 0); err != nil {
 		return 0, err
 	}
 
-	if err := EQReadLittleEndian(b, p, &p.Year, 0); err != nil {
+	if err := EQRead(b, p, &p.Year, 0); err != nil {
 		return 0, err
 	}
 
