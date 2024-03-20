@@ -150,10 +150,10 @@ func EQReadBigEndian[T EQTypes](b []byte, s EQStruct, field *T, size int) error 
 		return EQReadUint32BigEndian(b, s, t)
 	case *uint16:
 		return EQReadUint16BigEndian(b, s, t)
-		/*	case *int32:
-				return EQReadInt32BigEndian(b, s, t)
-			case *int16:
-				return EQReadInt16BigEndian(b, s, t) */
+	case *int32:
+		return EQReadInt32BigEndian(b, s, t)
+	case *int16:
+		return EQReadInt16BigEndian(b, s, t)
 	default:
 		return EQRead(b, s, field, size)
 	}
@@ -236,6 +236,24 @@ func EQReadInt32(b []byte, s EQStruct, field *int32) error {
 	p := s.bp()
 	c := b[*p:]
 	*field = int32(binary.LittleEndian.Uint32(c))
+	*p += 4
+
+	return nil
+}
+
+func EQReadInt16BigEndian(b []byte, s EQStruct, field *int16) error {
+	p := s.bp()
+	c := b[*p:]
+	*field = int16(binary.BigEndian.Uint16(c))
+	*p += 2
+
+	return nil
+}
+
+func EQReadInt32BigEndian(b []byte, s EQStruct, field *int32) error {
+	p := s.bp()
+	c := b[*p:]
+	*field = int32(binary.BigEndian.Uint32(c))
 	*p += 4
 
 	return nil

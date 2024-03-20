@@ -13,4 +13,4 @@ special_dates: "\x00\x00\x00\x00"
 special_codes: "\x00\x00\x00\x00"
 water_music: 4
 music_normal_day: 2
-graveyard_time: 256
+graveyard_time: 1
