@@ -13,8 +13,9 @@ type LogServer struct {
 	bPointer int
 }
 
-func (p *LogServer) EQType() EQType { return EQT_LogServer }
-func (p *LogServer) bp() *int       { return &p.bPointer }
+func (p *LogServer) EQType() EQType   { return EQT_LogServer }
+func (p *LogServer) bp() *int         { return &p.bPointer }
+func (p *LogServer) SetPointer(i int) { p.bPointer = i }
 
 func (p *LogServer) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 32

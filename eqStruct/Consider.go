@@ -17,8 +17,9 @@ type Consider struct {
 	bPointer int
 }
 
-func (p *Consider) EQType() EQType { return EQT_Consider }
-func (p *Consider) bp() *int       { return &p.bPointer }
+func (p *Consider) EQType() EQType   { return EQT_Consider }
+func (p *Consider) bp() *int         { return &p.bPointer }
+func (p *Consider) SetPointer(i int) { p.bPointer = i }
 
 func (p *Consider) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -111,8 +111,9 @@ type SpellBuff struct {
 	Counters     uint16
 }
 
-func (p *PlayerProfile) EQType() EQType { return EQT_PlayerProfile }
-func (p *PlayerProfile) bp() *int       { return &p.bPointer }
+func (p *PlayerProfile) EQType() EQType   { return EQT_PlayerProfile }
+func (p *PlayerProfile) bp() *int         { return &p.bPointer }
+func (p *PlayerProfile) SetPointer(i int) { p.bPointer = i }
 
 func (p *PlayerProfile) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

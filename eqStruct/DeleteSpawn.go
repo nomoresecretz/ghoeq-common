@@ -11,8 +11,9 @@ type DeleteSpawn struct {
 	bPointer int
 }
 
-func (p *DeleteSpawn) EQType() EQType { return EQT_DeleteSpawn }
-func (p *DeleteSpawn) bp() *int       { return &p.bPointer }
+func (p *DeleteSpawn) EQType() EQType   { return EQT_DeleteSpawn }
+func (p *DeleteSpawn) bp() *int         { return &p.bPointer }
+func (p *DeleteSpawn) SetPointer(i int) { p.bPointer = i }
 
 func (p *DeleteSpawn) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

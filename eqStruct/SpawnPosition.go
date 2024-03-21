@@ -18,8 +18,9 @@ type SpawnPositionUpdate struct {
 	bPointer int
 }
 
-func (p *SpawnPositionUpdate) EQType() EQType { return EQT_SpawnPositionUpdate }
-func (p *SpawnPositionUpdate) bp() *int       { return &p.bPointer }
+func (p *SpawnPositionUpdate) EQType() EQType   { return EQT_SpawnPositionUpdate }
+func (p *SpawnPositionUpdate) bp() *int         { return &p.bPointer }
+func (p *SpawnPositionUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *SpawnPositionUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
@@ -65,8 +66,9 @@ type SpawnPositionUpdates struct {
 	bPointer int
 }
 
-func (p *SpawnPositionUpdates) EQType() EQType { return EQT_SpawnPositionUpdates }
-func (p *SpawnPositionUpdates) bp() *int       { return &p.bPointer }
+func (p *SpawnPositionUpdates) EQType() EQType   { return EQT_SpawnPositionUpdates }
+func (p *SpawnPositionUpdates) bp() *int         { return &p.bPointer }
+func (p *SpawnPositionUpdates) SetPointer(i int) { p.bPointer = i }
 
 func (p *SpawnPositionUpdates) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

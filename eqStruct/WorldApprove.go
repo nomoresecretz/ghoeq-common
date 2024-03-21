@@ -12,8 +12,9 @@ type WorldApprove struct {
 	bPointer int
 }
 
-func (p *WorldApprove) EQType() EQType { return EQT_WorldApprove }
-func (p *WorldApprove) bp() *int       { return &p.bPointer }
+func (p *WorldApprove) EQType() EQType   { return EQT_WorldApprove }
+func (p *WorldApprove) bp() *int         { return &p.bPointer }
+func (p *WorldApprove) SetPointer(i int) { p.bPointer = i }
 
 func (p *WorldApprove) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -11,8 +11,9 @@ type EnterWorld struct {
 	bPointer int
 }
 
-func (p *EnterWorld) EQType() EQType { return EQT_EnterWorld }
-func (p *EnterWorld) bp() *int       { return &p.bPointer }
+func (p *EnterWorld) EQType() EQType   { return EQT_EnterWorld }
+func (p *EnterWorld) bp() *int         { return &p.bPointer }
+func (p *EnterWorld) SetPointer(i int) { p.bPointer = i }
 
 func (p *EnterWorld) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -12,8 +12,9 @@ type LFG struct {
 	bPointer int
 }
 
-func (p *LFG) EQType() EQType { return EQT_LFG }
-func (p *LFG) bp() *int       { return &p.bPointer }
+func (p *LFG) EQType() EQType   { return EQT_LFG }
+func (p *LFG) bp() *int         { return &p.bPointer }
+func (p *LFG) SetPointer(i int) { p.bPointer = i }
 
 func (p *LFG) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
@@ -48,8 +49,9 @@ type LFGAppearance struct {
 	bPointer int
 }
 
-func (p *LFGAppearance) EQType() EQType { return EQT_LFGAppearance }
-func (p *LFGAppearance) bp() *int       { return &p.bPointer }
+func (p *LFGAppearance) EQType() EQType   { return EQT_LFGAppearance }
+func (p *LFGAppearance) bp() *int         { return &p.bPointer }
+func (p *LFGAppearance) SetPointer(i int) { p.bPointer = i }
 
 func (p *LFGAppearance) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

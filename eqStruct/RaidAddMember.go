@@ -14,8 +14,9 @@ type RaidAddMember struct {
 	bPointer int
 }
 
-func (p *RaidAddMember) EQType() EQType { return EQT_RaidAddMember }
-func (p *RaidAddMember) bp() *int       { return &p.bPointer }
+func (p *RaidAddMember) EQType() EQType   { return EQT_RaidAddMember }
+func (p *RaidAddMember) bp() *int         { return &p.bPointer }
+func (p *RaidAddMember) SetPointer(i int) { p.bPointer = i }
 
 func (p *RaidAddMember) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -13,8 +13,9 @@ type StaminaUpdate struct {
 	bPointer int
 }
 
-func (p *StaminaUpdate) EQType() EQType { return EQT_StaminaUpdate }
-func (p *StaminaUpdate) bp() *int       { return &p.bPointer }
+func (p *StaminaUpdate) EQType() EQType   { return EQT_StaminaUpdate }
+func (p *StaminaUpdate) bp() *int         { return &p.bPointer }
+func (p *StaminaUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *StaminaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

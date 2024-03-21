@@ -12,8 +12,9 @@ type TintStruct struct {
 	bPointer int
 }
 
-func (p *TintStruct) EQType() EQType { return EQT_TintStruct }
-func (p *TintStruct) bp() *int       { return &p.bPointer }
+func (p *TintStruct) EQType() EQType   { return EQT_TintStruct }
+func (p *TintStruct) bp() *int         { return &p.bPointer }
+func (p *TintStruct) SetPointer(i int) { p.bPointer = i }
 
 func (p *TintStruct) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

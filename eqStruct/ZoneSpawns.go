@@ -64,8 +64,9 @@ type ZoneSpawn struct {
 	bPointer int
 }
 
-func (p *ZoneSpawn) EQType() EQType { return EQT_ZoneSpawn }
-func (p *ZoneSpawn) bp() *int       { return &p.bPointer }
+func (p *ZoneSpawn) EQType() EQType   { return EQT_ZoneSpawn }
+func (p *ZoneSpawn) bp() *int         { return &p.bPointer }
+func (p *ZoneSpawn) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneSpawn) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 4
@@ -255,8 +256,9 @@ type ZoneSpawns struct {
 	bPointer int
 }
 
-func (p *ZoneSpawns) EQType() EQType { return EQT_ZoneSpawns }
-func (p *ZoneSpawns) bp() *int       { return &p.bPointer }
+func (p *ZoneSpawns) EQType() EQType   { return EQT_ZoneSpawns }
+func (p *ZoneSpawns) bp() *int         { return &p.bPointer }
+func (p *ZoneSpawns) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneSpawns) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

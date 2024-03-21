@@ -11,8 +11,9 @@ type ExpUpdate struct {
 	bPointer int
 }
 
-func (p *ExpUpdate) EQType() EQType { return EQT_ExpUpdate }
-func (p *ExpUpdate) bp() *int       { return &p.bPointer }
+func (p *ExpUpdate) EQType() EQType   { return EQT_ExpUpdate }
+func (p *ExpUpdate) bp() *int         { return &p.bPointer }
+func (p *ExpUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *ExpUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

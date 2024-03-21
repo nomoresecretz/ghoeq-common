@@ -22,8 +22,9 @@ type Object struct {
 	bPointer int
 }
 
-func (p *Object) EQType() EQType { return EQT_Object }
-func (p *Object) bp() *int       { return &p.bPointer }
+func (p *Object) EQType() EQType   { return EQT_Object }
+func (p *Object) bp() *int         { return &p.bPointer }
+func (p *Object) SetPointer(i int) { p.bPointer = i }
 
 func (p *Object) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

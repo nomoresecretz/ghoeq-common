@@ -11,8 +11,9 @@ type LoginAccepted struct {
 	bPointer int
 }
 
-func (p *LoginAccepted) EQType() EQType { return EQT_LoginAccepted }
-func (p *LoginAccepted) bp() *int       { return &p.bPointer }
+func (p *LoginAccepted) EQType() EQType   { return EQT_LoginAccepted }
+func (p *LoginAccepted) bp() *int         { return &p.bPointer }
+func (p *LoginAccepted) SetPointer(i int) { p.bPointer = i }
 
 func (p *LoginAccepted) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

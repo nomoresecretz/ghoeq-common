@@ -12,8 +12,9 @@ type Weather struct {
 	bPointer int
 }
 
-func (p *Weather) EQType() EQType { return EQT_Weather }
-func (p *Weather) bp() *int       { return &p.bPointer }
+func (p *Weather) EQType() EQType   { return EQT_Weather }
+func (p *Weather) bp() *int         { return &p.bPointer }
+func (p *Weather) SetPointer(i int) { p.bPointer = i }
 
 func (p *Weather) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -13,8 +13,9 @@ type ClientUpdate struct {
 	bPointer int
 }
 
-func (p *ClientUpdate) EQType() EQType { return EQT_ClientUpdate }
-func (p *ClientUpdate) bp() *int       { return &p.bPointer }
+func (p *ClientUpdate) EQType() EQType   { return EQT_ClientUpdate }
+func (p *ClientUpdate) bp() *int         { return &p.bPointer }
+func (p *ClientUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *ClientUpdate) Unmarshal(b []byte) (int, error) {
 	return 0, fmt.Errorf("this is not a real bytestream packet")

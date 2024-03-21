@@ -14,8 +14,9 @@ type RaidGeneral struct {
 	bPointer int
 }
 
-func (p *RaidGeneral) EQType() EQType { return EQT_RaidGeneral }
-func (p *RaidGeneral) bp() *int       { return &p.bPointer }
+func (p *RaidGeneral) EQType() EQType   { return EQT_RaidGeneral }
+func (p *RaidGeneral) bp() *int         { return &p.bPointer }
+func (p *RaidGeneral) SetPointer(i int) { p.bPointer = i }
 
 func (p *RaidGeneral) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -13,8 +13,9 @@ type BeginCast struct {
 	bPointer int
 }
 
-func (p *BeginCast) EQType() EQType { return EQT_BeginCast }
-func (p *BeginCast) bp() *int       { return &p.bPointer }
+func (p *BeginCast) EQType() EQType   { return EQT_BeginCast }
+func (p *BeginCast) bp() *int         { return &p.bPointer }
+func (p *BeginCast) SetPointer(i int) { p.bPointer = i }
 
 func (p *BeginCast) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

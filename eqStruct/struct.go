@@ -138,13 +138,28 @@ type EQStruct interface {
 	bp() *int
 	Unmarshal(b []byte) (int, error) // This is only temporary until the VM is implemented.
 	ProtoMess() proto.Message
+	SetPointer(int)
+}
+
+type prog interface {
+	Run(s EQStruct, b []byte) (int, error)
+}
+
+var override = make(map[EQType]prog)
+
+func Unmarshal[T EQStruct](s T, b []byte) (int, error) {
+	if p, ok := override[s.EQType()]; ok {
+		return p.Run(s, b)
+	}
+
+	return s.Unmarshal(b)
 }
 
 type EQTypes interface {
-	uint8 | uint16 | uint32 | int8 | int16 | int32 | float32 | string | []byte
+	*uint8 | *uint16 | *uint32 | *int8 | *int16 | *int32 | *float32 | *string | *[]byte
 }
 
-func EQReadBigEndian[T EQTypes](b []byte, s EQStruct, field *T, size int) error {
+func EQReadBigEndian(b []byte, s EQStruct, field any, size int) error {
 	switch t := any(field).(type) {
 	case *uint32:
 		return EQReadUint32BigEndian(b, s, t)
@@ -159,7 +174,7 @@ func EQReadBigEndian[T EQTypes](b []byte, s EQStruct, field *T, size int) error 
 	}
 }
 
-func EQRead[T EQTypes](b []byte, s EQStruct, field *T, size int) error {
+func EQRead(b []byte, s EQStruct, field any, size int) error {
 	switch t := any(field).(type) {
 	case *uint32:
 		return EQReadUint32(b, s, t)

@@ -23,8 +23,9 @@ type SpawnDoor struct {
 	bPointer int
 }
 
-func (p *SpawnDoor) EQType() EQType { return EQT_SpawnDoor }
-func (p *SpawnDoor) bp() *int       { return &p.bPointer }
+func (p *SpawnDoor) EQType() EQType   { return EQT_SpawnDoor }
+func (p *SpawnDoor) bp() *int         { return &p.bPointer }
+func (p *SpawnDoor) SetPointer(i int) { p.bPointer = i }
 
 func (p *SpawnDoor) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
@@ -111,8 +112,9 @@ type SpawnDoors struct {
 	bPointer int
 }
 
-func (p *SpawnDoors) EQType() EQType { return EQT_SpawnDoors }
-func (p *SpawnDoors) bp() *int       { return &p.bPointer }
+func (p *SpawnDoors) EQType() EQType   { return EQT_SpawnDoors }
+func (p *SpawnDoors) bp() *int         { return &p.bPointer }
+func (p *SpawnDoors) SetPointer(i int) { p.bPointer = i }
 
 func (p *SpawnDoors) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

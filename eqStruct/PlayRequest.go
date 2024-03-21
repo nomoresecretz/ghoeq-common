@@ -10,8 +10,9 @@ type PlayRequest struct {
 	bPointer int
 }
 
-func (p *PlayRequest) EQType() EQType { return EQT_PlayRequest }
-func (p *PlayRequest) bp() *int       { return &p.bPointer }
+func (p *PlayRequest) EQType() EQType   { return EQT_PlayRequest }
+func (p *PlayRequest) bp() *int         { return &p.bPointer }
+func (p *PlayRequest) SetPointer(i int) { p.bPointer = i }
 
 func (p *PlayRequest) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

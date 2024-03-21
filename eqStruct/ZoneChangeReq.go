@@ -16,8 +16,9 @@ type ZoneChangeReq struct {
 	bPointer int
 }
 
-func (p *ZoneChangeReq) EQType() EQType { return EQT_ZoneChangeReq }
-func (p *ZoneChangeReq) bp() *int       { return &p.bPointer }
+func (p *ZoneChangeReq) EQType() EQType   { return EQT_ZoneChangeReq }
+func (p *ZoneChangeReq) bp() *int         { return &p.bPointer }
+func (p *ZoneChangeReq) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneChangeReq) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -15,8 +15,9 @@ type Time struct {
 	bPointer int
 }
 
-func (p *Time) EQType() EQType { return EQT_Time }
-func (p *Time) bp() *int       { return &p.bPointer }
+func (p *Time) EQType() EQType   { return EQT_Time }
+func (p *Time) bp() *int         { return &p.bPointer }
+func (p *Time) SetPointer(i int) { p.bPointer = i }
 
 func (p *Time) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

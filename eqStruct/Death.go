@@ -18,8 +18,9 @@ type Death struct {
 	bPointer int
 }
 
-func (p *Death) EQType() EQType { return EQT_Death }
-func (p *Death) bp() *int       { return &p.bPointer }
+func (p *Death) EQType() EQType   { return EQT_Death }
+func (p *Death) bp() *int         { return &p.bPointer }
+func (p *Death) SetPointer(i int) { p.bPointer = i }
 
 func (p *Death) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

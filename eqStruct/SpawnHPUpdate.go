@@ -13,8 +13,9 @@ type HPUpdate struct {
 	bPointer int
 }
 
-func (p *HPUpdate) EQType() EQType { return EQT_HPUpdate }
-func (p *HPUpdate) bp() *int       { return &p.bPointer }
+func (p *HPUpdate) EQType() EQType   { return EQT_HPUpdate }
+func (p *HPUpdate) bp() *int         { return &p.bPointer }
+func (p *HPUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *HPUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

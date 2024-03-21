@@ -12,8 +12,9 @@ type ServerMOTD struct {
 	bPointer int
 }
 
-func (p *ServerMOTD) EQType() EQType { return EQT_ServerMOTD }
-func (p *ServerMOTD) bp() *int       { return &p.bPointer }
+func (p *ServerMOTD) EQType() EQType   { return EQT_ServerMOTD }
+func (p *ServerMOTD) bp() *int         { return &p.bPointer }
+func (p *ServerMOTD) SetPointer(i int) { p.bPointer = i }
 
 func (p *ServerMOTD) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

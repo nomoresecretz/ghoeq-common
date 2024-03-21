@@ -13,8 +13,9 @@ type SpawnAppearance struct {
 	bPointer int
 }
 
-func (p *SpawnAppearance) EQType() EQType { return EQT_SpawnAppearance }
-func (p *SpawnAppearance) bp() *int       { return &p.bPointer }
+func (p *SpawnAppearance) EQType() EQType   { return EQT_SpawnAppearance }
+func (p *SpawnAppearance) bp() *int         { return &p.bPointer }
+func (p *SpawnAppearance) SetPointer(i int) { p.bPointer = i }
 
 func (p *SpawnAppearance) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

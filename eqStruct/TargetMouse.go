@@ -11,8 +11,9 @@ type Target struct {
 	bPointer int
 }
 
-func (p *Target) EQType() EQType { return EQT_Target }
-func (p *Target) bp() *int       { return &p.bPointer }
+func (p *Target) EQType() EQType   { return EQT_Target }
+func (p *Target) bp() *int         { return &p.bPointer }
+func (p *Target) SetPointer(i int) { p.bPointer = i }
 
 func (p *Target) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

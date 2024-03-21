@@ -18,8 +18,9 @@ type Damage struct {
 	bPointer int
 }
 
-func (p *Damage) EQType() EQType { return EQT_Damage }
-func (p *Damage) bp() *int       { return &p.bPointer }
+func (p *Damage) EQType() EQType   { return EQT_Damage }
+func (p *Damage) bp() *int         { return &p.bPointer }
+func (p *Damage) SetPointer(i int) { p.bPointer = i }
 
 func (p *Damage) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

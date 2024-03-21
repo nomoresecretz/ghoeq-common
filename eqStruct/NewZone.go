@@ -54,8 +54,9 @@ type NewZone struct {
 	bPointer int
 }
 
-func (p *NewZone) EQType() EQType { return EQT_NewZone }
-func (p *NewZone) bp() *int       { return &p.bPointer }
+func (p *NewZone) EQType() EQType   { return EQT_NewZone }
+func (p *NewZone) bp() *int         { return &p.bPointer }
+func (p *NewZone) SetPointer(i int) { p.bPointer = i }
 
 func (p *NewZone) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -12,8 +12,9 @@ type ManaUpdate struct {
 	bPointer int
 }
 
-func (p *ManaUpdate) EQType() EQType { return EQT_ManaUpdate }
-func (p *ManaUpdate) bp() *int       { return &p.bPointer }
+func (p *ManaUpdate) EQType() EQType   { return EQT_ManaUpdate }
+func (p *ManaUpdate) bp() *int         { return &p.bPointer }
+func (p *ManaUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *ManaUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -11,8 +11,9 @@ type ZoneServerInfo struct {
 	bPointer int
 }
 
-func (p *ZoneServerInfo) EQType() EQType { return EQT_ZoneServerInfo }
-func (p *ZoneServerInfo) bp() *int       { return &p.bPointer }
+func (p *ZoneServerInfo) EQType() EQType   { return EQT_ZoneServerInfo }
+func (p *ZoneServerInfo) bp() *int         { return &p.bPointer }
+func (p *ZoneServerInfo) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneServerInfo) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

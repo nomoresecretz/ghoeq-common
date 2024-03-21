@@ -12,8 +12,9 @@ type GuildUpdate struct {
 	bPointer int
 }
 
-func (p *GuildUpdate) EQType() EQType { return EQT_GuildUpdate }
-func (p *GuildUpdate) bp() *int       { return &p.bPointer }
+func (p *GuildUpdate) EQType() EQType   { return EQT_GuildUpdate }
+func (p *GuildUpdate) bp() *int         { return &p.bPointer }
+func (p *GuildUpdate) SetPointer(i int) { p.bPointer = i }
 
 func (p *GuildUpdate) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

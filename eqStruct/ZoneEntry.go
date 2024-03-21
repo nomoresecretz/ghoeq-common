@@ -30,8 +30,9 @@ type ZoneEntryServer struct {
 	bPointer int
 }
 
-func (p *ZoneEntryServer) EQType() EQType { return EQT_ZoneEntryServer }
-func (p *ZoneEntryServer) bp() *int       { return &p.bPointer }
+func (p *ZoneEntryServer) EQType() EQType   { return EQT_ZoneEntryServer }
+func (p *ZoneEntryServer) bp() *int         { return &p.bPointer }
+func (p *ZoneEntryServer) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneEntryServer) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
@@ -145,8 +146,9 @@ type ZoneEntryClient struct {
 	bPointer int
 }
 
-func (p *ZoneEntryClient) EQType() EQType { return EQT_ZoneEntryClient }
-func (p *ZoneEntryClient) bp() *int       { return &p.bPointer }
+func (p *ZoneEntryClient) EQType() EQType   { return EQT_ZoneEntryClient }
+func (p *ZoneEntryClient) bp() *int         { return &p.bPointer }
+func (p *ZoneEntryClient) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZoneEntryClient) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

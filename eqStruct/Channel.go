@@ -16,8 +16,9 @@ type ChannelMessage struct {
 	bPointer int
 }
 
-func (p *ChannelMessage) EQType() EQType { return EQT_ChannelMessage }
-func (p *ChannelMessage) bp() *int       { return &p.bPointer }
+func (p *ChannelMessage) EQType() EQType   { return EQT_ChannelMessage }
+func (p *ChannelMessage) bp() *int         { return &p.bPointer }
+func (p *ChannelMessage) SetPointer(i int) { p.bPointer = i }
 
 func (p *ChannelMessage) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

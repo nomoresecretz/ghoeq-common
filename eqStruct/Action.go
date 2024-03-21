@@ -22,8 +22,9 @@ type Action struct {
 	bPointer int
 }
 
-func (p *Action) EQType() EQType { return EQT_Action }
-func (p *Action) bp() *int       { return &p.bPointer }
+func (p *Action) EQType() EQType   { return EQT_Action }
+func (p *Action) bp() *int         { return &p.bPointer }
+func (p *Action) SetPointer(i int) { p.bPointer = i }
 
 func (p *Action) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

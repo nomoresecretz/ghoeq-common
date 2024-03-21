@@ -14,8 +14,9 @@ type WearChange struct {
 	bPointer int
 }
 
-func (p *WearChange) EQType() EQType { return EQT_WearChange }
-func (p *WearChange) bp() *int       { return &p.bPointer }
+func (p *WearChange) EQType() EQType   { return EQT_WearChange }
+func (p *WearChange) bp() *int         { return &p.bPointer }
+func (p *WearChange) SetPointer(i int) { p.bPointer = i }
 
 func (p *WearChange) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

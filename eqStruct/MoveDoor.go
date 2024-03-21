@@ -12,8 +12,9 @@ type MoveDoor struct {
 	bPointer int
 }
 
-func (p *MoveDoor) EQType() EQType { return EQT_MoveDoor }
-func (p *MoveDoor) bp() *int       { return &p.bPointer }
+func (p *MoveDoor) EQType() EQType   { return EQT_MoveDoor }
+func (p *MoveDoor) bp() *int         { return &p.bPointer }
+func (p *MoveDoor) SetPointer(i int) { p.bPointer = i }
 
 func (p *MoveDoor) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

@@ -12,8 +12,9 @@ type ZonePoints struct {
 	bPointer int
 }
 
-func (p *ZonePoints) EQType() EQType { return EQT_ZonePoints }
-func (p *ZonePoints) bp() *int       { return &p.bPointer }
+func (p *ZonePoints) EQType() EQType   { return EQT_ZonePoints }
+func (p *ZonePoints) bp() *int         { return &p.bPointer }
+func (p *ZonePoints) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZonePoints) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
@@ -61,8 +62,9 @@ type ZonePoint struct {
 	bPointer int
 }
 
-func (p *ZonePoint) EQType() EQType { return EQT_ZonePoint }
-func (p *ZonePoint) bp() *int       { return &p.bPointer }
+func (p *ZonePoint) EQType() EQType   { return EQT_ZonePoint }
+func (p *ZonePoint) bp() *int         { return &p.bPointer }
+func (p *ZonePoint) SetPointer(i int) { p.bPointer = i }
 
 func (p *ZonePoint) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0

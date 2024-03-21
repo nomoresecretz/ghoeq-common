@@ -14,8 +14,9 @@ type GuildsList struct {
 
 const GuildEntryMax = 512
 
-func (p *GuildsList) EQType() EQType { return EQT_GuildsList }
-func (p *GuildsList) bp() *int       { return &p.bPointer }
+func (p *GuildsList) EQType() EQType   { return EQT_GuildsList }
+func (p *GuildsList) bp() *int         { return &p.bPointer }
+func (p *GuildsList) SetPointer(i int) { p.bPointer = i }
 
 func (p *GuildsList) Unmarshal(b []byte) (int, error) {
 	p.bPointer = 0
